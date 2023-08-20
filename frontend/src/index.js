@@ -4,18 +4,19 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Grid from "./grid.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Title from "./title";
 
 const App = () => {
   const letters = [
-    ["a", "b", "c", "d"],
-    ["a", "b", "c", "d"],
-    ["a", "b", "c", "d"],
-    ["a", "b", "c", "d"],
+    ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
   ];
 
   return (
     <div className="app">
-      <h1>Word Search</h1>
+      <Title />
       <Grid letters={letters} />
     </div>
   );
