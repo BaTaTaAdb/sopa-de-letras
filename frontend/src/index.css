@@ -1,28 +1,3 @@
-.cell {     
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    background-color: #f8f9fa;
-    transition: background-color 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-
-    &:hover {
-        background-color: #d1d3d4;
-        cursor: pointer;
-    }
-}
-
-.cell.col {
-    flex: 1;  
-}
-
-.cell.col::before {
-    content: "";
-    display: block;
-    padding-top: 100%;  /* This ensures a 1:1 aspect ratio */
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

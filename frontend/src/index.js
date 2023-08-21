@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Grid from "./grid.js";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Title from "./title";
 
 const App = () => {
@@ -12,11 +11,13 @@ const App = () => {
     ["a", "b", "c", "d", "f"],
     ["a", "b", "c", "d", "f"],
     ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
+    ["a", "b", "c", "d", "f"],
   ];
 
   return (
-    <div className="app">
-      <Title />
+    <div class="app">
       <Grid letters={letters} />
     </div>
   );

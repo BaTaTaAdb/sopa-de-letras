@@ -2,12 +2,17 @@ import React from "react";
 
 function Grid({ letters }) {
   return (
-    <div className="container">
+    <div class="grid gap-0">
       {letters.map((row, rowIndex) => (
-        <div key={rowIndex} className="row">
+        <div key={rowIndex} class="flex">
           {row.map((letter, colIndex) => (
-            <div key={colIndex} className="cell col text-center py-2">
-              {letter}
+            <div
+              key={colIndex}
+              class="flex-1 aspect-w-1 aspect-h-1 border p-2 text-center"
+            >
+              <div class="aspect-square flex justify-center items-center">
+                {letter}
+              </div>
             </div>
           ))}
         </div>
