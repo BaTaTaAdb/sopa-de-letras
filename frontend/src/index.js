@@ -21,6 +21,7 @@ const App = () => {
 
   return (
     <div class="app">
+      <Title />
       <Grid letters={letters} />
     </div>
   );
