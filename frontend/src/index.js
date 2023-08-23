@@ -7,20 +7,20 @@ import Title from "./title";
 
 const App = () => {
   const letters = [
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-    ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
+    ["A", "B", "C", "D", "F", "G", "H", "I", "J"],
   ];
 
   return (
-    <div className="app">
+    <div className="app bg-[#EEF1FF]">
       <Title />
       <Grid letters={letters} />
     </div>
@@ -37,4 +37,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(console.log);
