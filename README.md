@@ -61,7 +61,7 @@ npm install
 npm start # Inicia o servidor na versão de desenvolvimento
 ```
 
-- **OU** Contrua o frontend (React):
+- **OU** Construa o frontend (React):
 
 ```bash
 npm run build
