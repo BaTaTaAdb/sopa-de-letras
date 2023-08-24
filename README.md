@@ -37,28 +37,43 @@ npm install
 3. **Configuração do Backend:**
    (Certifique-se que possui todos os pacotes necessários para correr o FastAPI)
 
+```bash
+# Aceda à directoria do backend e execute
+cd backend
+python -m venv venv
+source "./venv/Scripts/activate"
+python -m pip install -r requirements.txt
+```
+
 4. **Execução da Aplicação:**
 
 - Inicie o backend (FastAPI):
 
 ```bash
-# Aceda à directoria do backend e execute
-cd backend
-python main.py
+uvicorn main:app --reload # (uso de uvicorn para iniciar o FastAPI)
 ```
 
 - De seguida, inicie o frontend (React):
 
 ```bash
 cd frontend
-npm start
+npm install
+npm start # Inicia o servidor na versão de desenvolvimento
+```
+
+- **OU** Contrua o frontend (React):
+
+```bash
+npm run build
+npm install -g serve
+serve -s build # Serve o servidor já na sua versão de produção
 ```
 
 Após completar estes passos, a aplicação deverá estar a correr no seu ambiente local!
 
 ## 📝 Contribuição
 
-Feedbacks, questões e pull requests são sempre bem-vindos. Para mais informações sobre como contribuir para o projecto, por favor, consulte o guia de contribuição.
+Feedbacks, questões e pull requests são sempre bem-vindos.
 
 ## 📜 Licença
 
