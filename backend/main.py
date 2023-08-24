@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(debug=True)
 
+
 origins = [
     "http://localhost:3000",
     "http://10.7.154.235",
@@ -32,12 +33,19 @@ LETTERS = [
     ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
 ]
 
+WORDS = ["BOAS", "OLA", "BEMVINDO", "AMBATUKAM"]
+
 
 @app.get('/')
 async def root():
     return {"message": "Hello World"}
 
 
-@app.get('/get-words', response_model=list[list[str]])
+@app.get('/get-letters', response_model=list[list[str]])
 async def get_letters() -> Any:
     return LETTERS
+
+
+@app.get('/get-words')
+async def get_words() -> Any:
+    return WORDS
