@@ -87,7 +87,7 @@ function Grid({ letters }) {
   return (
     <div
       id="grid"
-      className="flex justify-center items-center h-screen"
+      className="flex justify-between items-center h-screen"
       onMouseUp={() => {
         isMouseDown.current = false;
         clearSelection(); // Clear the selection when mouse button is released

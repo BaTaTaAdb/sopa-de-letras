@@ -6,7 +6,7 @@ function WordsList({ words }) {
       <div className="p-6 bg-white rounded-lg shadow-lg">
         <ul>
           {words.map((word, index) => (
-            <li key={index} className="text-xl mb-2 text-gray-800">
+            <li key={index} className="text-3xl mb-2 text-gray-800">
               {word}
             </li>
           ))}

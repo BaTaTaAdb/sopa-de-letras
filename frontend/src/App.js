@@ -67,8 +67,9 @@ const App = () => {
   return (
     <div className="app bg-[#EEF1FF]">
       <Title />
-      <div className="gap-16 flex items-center justify-center grid-rows-2">
+      <div className="gap-4 px-8 flex flex-row items-center justify-center">
         <WordsList words={words} />
+        <div className="invisible px-8">Boas! </div>
         <Grid letters={letters} />
       </div>
     </div>
