@@ -4,6 +4,7 @@ function Grid({ letters }) {
   // State for selected cells and their order
   const [selected, setSelected] = useState([]);
   const [orderOfSelection, setOrderOfSelection] = useState([]);
+  const [positionOfSelection, setPositionOfSelection] = useState([]);
   // State for the direction in which user is currently selecting
   const [orientation, setOrientation] = useState(null);
   // Ref to track if the mouse button is pressed down
@@ -69,18 +70,25 @@ function Grid({ letters }) {
       if (!selected.includes(id) && isValidSelection(rowIndex, colIndex)) {
         setSelected((prev) => [...prev, id]);
         setOrderOfSelection((prev) => [...prev, letters[rowIndex][colIndex]]);
+
+        // Update the positionOfSelection state here
+        setPositionOfSelection((prev) => [
+          ...prev,
+          { x: colIndex, y: rowIndex },
+        ]);
       }
     }
   };
-
   // Function to clear the current selection
   const clearSelection = () => {
     // TODO: Add here the API fetching!
     if (orderOfSelection.length !== 0) {
-      console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
+      console.log("Order of selected letters:", orderOfSelection);
+      console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
     }
     setSelected([]);
     setOrderOfSelection([]);
+    setPositionOfSelection([]); // Clear positionOfSelection
     setOrientation(null); // Reset orientation on mouse release
   };
 

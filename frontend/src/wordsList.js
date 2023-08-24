@@ -5,11 +5,13 @@ function WordsList({ words }) {
     <div className="min-h-screen flex items-center justify-center">
       <div className="p-6 bg-white rounded-lg shadow-lg">
         <ul>
-          {words.map((word, index) => (
-            <li key={index} className="text-3xl mb-2 text-gray-800">
-              {word}
-            </li>
-          ))}
+          {words
+            .map((item) => item.word)
+            .map((word, index) => (
+              <li key={index} className="text-3xl mb-2 text-gray-800">
+                {word}
+              </li>
+            ))}
         </ul>
       </div>
     </div>
