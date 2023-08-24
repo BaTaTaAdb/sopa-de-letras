@@ -50,13 +50,17 @@ function Grid({ letters }) {
                 }
                 hover:bg-[#B1B2FF] justify-center items-center border 
                 border-white hover:cursor-pointer select-none transition-colors duration-300`}
-                onMouseOver={() => toggleSelect(rowIndex, colIndex)}
-                onMouseDown={() => {
-                  isMouseDown.current = true;
-                  toggleSelect(rowIndex, colIndex);
-                }}
               >
-                {letter}
+                <div
+                  className="w-8 h-8 flex justify-center items-center" // This is the smaller hitbox
+                  onMouseOver={() => toggleSelect(rowIndex, colIndex)}
+                  onMouseDown={() => {
+                    isMouseDown.current = true;
+                    toggleSelect(rowIndex, colIndex);
+                  }}
+                >
+                  {letter}
+                </div>
               </div>
             ))}
           </div>
