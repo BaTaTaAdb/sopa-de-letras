@@ -2,21 +2,38 @@ import React, { useState, useRef } from "react";
 
 function Grid({ letters }) {
   const [selected, setSelected] = useState([]);
+  const [orderOfSelection, setOrderOfSelection] = useState([]);
   const isMouseDown = useRef(false);
 
+  const getId = (rowIndex, colIndex) => `${rowIndex}-${colIndex}`;
+
   const toggleSelect = (rowIndex, colIndex) => {
-    const id = `${rowIndex}-${colIndex}`;
-    if (isMouseDown.current && !selected.includes(id)) {
-      setSelected([...selected, id]);
+    const id = getId(rowIndex, colIndex);
+    if (isMouseDown.current) {
+      if (!selected.includes(id)) {
+        setSelected((prev) => [...prev, id]);
+        setOrderOfSelection((prev) => [...prev, letters[rowIndex][colIndex]]);
+      } else {
+        const newSelected = selected.filter((sid) => sid !== id);
+        setSelected(newSelected);
+      }
     }
+  };
+
+  const clearSelection = () => {
+    console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
+    setSelected([]);
+    setOrderOfSelection([]);
   };
 
   return (
     <div
       id="grid"
       className="flex justify-center items-center h-screen"
-      onMouseDown={() => (isMouseDown.current = true)}
-      onMouseUp={() => (isMouseDown.current = false)}
+      onMouseUp={() => {
+        isMouseDown.current = false;
+        clearSelection();
+      }}
       onMouseLeave={() => (isMouseDown.current = false)}
     >
       <div className="bg-[#D2DAFF] justify-center flex border border-white">
@@ -27,7 +44,7 @@ function Grid({ letters }) {
                 key={colIndex}
                 className={`h-12 w-12 text-2xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex
                 ${
-                  selected.includes(`${rowIndex}-${colIndex}`)
+                  selected.includes(getId(rowIndex, colIndex))
                     ? "bg-[#793FDF]"
                     : ""
                 }
@@ -48,4 +65,5 @@ function Grid({ letters }) {
     </div>
   );
 }
+
 export default Grid;
