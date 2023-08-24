@@ -5,10 +5,12 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 ## 🛠️ Tecnologias Utilizadas
 
 **Frontend:**
-- [React](https://pt-br.react.dev) 
+
+- [React](https://pt-br.react.dev)
 - [TailwindCSS](https://tailwindcss.com/)
 
 **Backend:**
+
 - [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 - [FastAPI](https://fastapi.tiangolo.com/)
 
@@ -19,31 +21,37 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmjs.com/) instalados na sua máquina.
 
 1. **Clone o Repositório:**
+
 ```bash
-git clone [URL_DO_REPOSITÓRIO]
+git clone https://github.com/BaTaTaAdb/sopa-de-letras.git
 cd directoria_do_projecto
 ```
 
 2. **Instalação das Dependências:**
-No directorio do projecto, execute o seguinte comando para instalar as dependências presentes no `package.json`:
+   Vá para o directorio do frontend e execute o seguinte comando para instalar as dependências presentes no `package.json`:
 
 ```bash
+cd frontend
 npm install
 ```
 
 3. **Configuração do Backend:**
-(Certifique-se que possui todos os pacotes necessários para correr o Flask e o FastAPI)
+   (Certifique-se que possui todos os pacotes necessários para correr o Flask e o FastAPI)
 
 4. **Execução da Aplicação:**
 
 - Inicie o backend (Flask/FastAPI):
+
 ```bash
 # Aceda à directoria do backend e execute
+cd backend
 python main.py
 ```
 
 - De seguida, inicie o frontend (React):
+
 ```bash
+cd frontend
 npm start
 ```
 
@@ -59,4 +67,4 @@ Este projecto está licenciado sob a licença MIT - consulte o arquivo [LICENSE]
 
 ---
 
-Desenvolvido com ❤️ por [Seu Nome]. Adicione os seus contactos ou qualquer outra informação relevante sobre si!
+Desenvolvido com ❤️ por **João Nuno** e **Pedro Elias**.
