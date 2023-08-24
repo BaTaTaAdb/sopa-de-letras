@@ -1,27 +1,39 @@
 import React, { useState, useRef } from "react";
 
 function Grid({ letters }) {
+  // State for selected cells and their order
   const [selected, setSelected] = useState([]);
   const [orderOfSelection, setOrderOfSelection] = useState([]);
+  // State for the direction in which user is currently selecting
   const [orientation, setOrientation] = useState(null);
+  // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
 
+  // Function to determine the direction of selection between two cells
   const getOrientation = (start, end) => {
     const dr = end.row - start.row;
     const dc = end.col - start.col;
+
+    // Check for each possible direction and return its name
+    // Horizontal
     if (dr === 0 && dc === 1) return "horizontal-right";
     if (dr === 0 && dc === -1) return "horizontal-left";
+    // Vertical
     if (dr === 1 && dc === 0) return "vertical-down";
     if (dr === -1 && dc === 0) return "vertical-up";
+    // Diagonal
     if (dr === 1 && dc === 1) return "diagonal-downright";
     if (dr === 1 && dc === -1) return "diagonal-downleft";
     if (dr === -1 && dc === 1) return "diagonal-upright";
     if (dr === -1 && dc === -1) return "diagonal-upleft";
+
     return null;
   };
 
+  // Function to get a unique ID for each cell using its rowIndex and colIndex
   const getId = (rowIndex, colIndex) => `${rowIndex}-${colIndex}`;
 
+  // Function to check if the current selection is in line with the ongoing direction
   const isValidSelection = (rowIndex, colIndex) => {
     if (!selected.length) return true;
 
@@ -33,15 +45,16 @@ function Grid({ letters }) {
       { row: rowIndex, col: colIndex }
     );
 
+    // On the second selection, set the orientation/direction
     if (selected.length === 1) {
-      // set the orientation on the second selection
       setOrientation(currentOrientation);
       return true;
     }
-
+    // For subsequent selections, check that they follow the set orientation
     return currentOrientation === orientation;
   };
 
+  // Function to select or deselect a cell
   const toggleSelect = (rowIndex, colIndex) => {
     const id = getId(rowIndex, colIndex);
     if (isMouseDown.current) {
@@ -52,7 +65,9 @@ function Grid({ letters }) {
     }
   };
 
+  // Function to clear the current selection
   const clearSelection = () => {
+    // TODO: Add here the API fetching!
     console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
     setSelected([]);
     setOrderOfSelection([]);
@@ -65,11 +80,11 @@ function Grid({ letters }) {
       className="flex justify-center items-center h-screen"
       onMouseUp={() => {
         isMouseDown.current = false;
-        clearSelection(); // Clear the selection
+        clearSelection(); // Clear the selection when mouse button is released
       }}
       onMouseLeave={() => {
         isMouseDown.current = false;
-        clearSelection(); // Clear the selection
+        clearSelection(); // Clear the selection once the mouse leaves the grid
       }}
     >
       <div className="bg-[#D2DAFF] justify-center flex border border-white">
