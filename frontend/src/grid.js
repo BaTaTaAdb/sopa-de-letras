@@ -9,9 +9,14 @@ function Grid({ letters }) {
   const getOrientation = (start, end) => {
     const dr = end.row - start.row;
     const dc = end.col - start.col;
-    if (dr === 0) return "horizontal";
-    if (dc === 0) return "vertical";
-    if (Math.abs(dr) === Math.abs(dc)) return "diagonal";
+    if (dr === 0 && dc === 1) return "horizontal-right";
+    if (dr === 0 && dc === -1) return "horizontal-left";
+    if (dr === 1 && dc === 0) return "vertical-down";
+    if (dr === -1 && dc === 0) return "vertical-up";
+    if (dr === 1 && dc === 1) return "diagonal-downright";
+    if (dr === 1 && dc === -1) return "diagonal-downleft";
+    if (dr === -1 && dc === 1) return "diagonal-upright";
+    if (dr === -1 && dc === -1) return "diagonal-upleft";
     return null;
   };
 
@@ -51,6 +56,7 @@ function Grid({ letters }) {
     console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
     setSelected([]);
     setOrderOfSelection([]);
+    setOrientation(null); // Reset orientation on mouse release
   };
 
   return (
@@ -60,14 +66,10 @@ function Grid({ letters }) {
       onMouseUp={() => {
         isMouseDown.current = false;
         clearSelection(); // Clear the selection
-        setOrientation(null); // NEW: Reset orientation on mouse leave
-        setOrderOfSelection([]);
       }}
       onMouseLeave={() => {
         isMouseDown.current = false;
         clearSelection(); // Clear the selection
-        setOrientation(null); // NEW: Reset orientation on mouse leave
-        setOrderOfSelection([]);
       }}
     >
       <div className="bg-[#D2DAFF] justify-center flex border border-white">
