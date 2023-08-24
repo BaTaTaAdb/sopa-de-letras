@@ -5,7 +5,7 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 ## 🛠️ Tecnologias Utilizadas
 
 **Frontend:**
-- [React](https://pt-br.reactjs.org/)
+- [React](https://pt-br.react.dev) 
 - [TailwindCSS](https://tailwindcss.com/)
 
 **Backend:**
