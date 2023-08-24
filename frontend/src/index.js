@@ -2,30 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Grid from "./grid.js";
-import Title from "./title";
-
-const App = () => {
-  const letters = [
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
-  ];
-
-  return (
-    <div className="app bg-[#EEF1FF]">
-      <Title />
-      <Grid letters={letters} />
-    </div>
-  );
-};
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
