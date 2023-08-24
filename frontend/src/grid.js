@@ -68,7 +68,9 @@ function Grid({ letters }) {
   // Function to clear the current selection
   const clearSelection = () => {
     // TODO: Add here the API fetching!
-    console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
+    if (orderOfSelection.length !== 0) {
+      console.log("Order of selected letters:", orderOfSelection); // Logs the order of selected letters
+    }
     setSelected([]);
     setOrderOfSelection([]);
     setOrientation(null); // Reset orientation on mouse release
@@ -87,7 +89,7 @@ function Grid({ letters }) {
         clearSelection(); // Clear the selection once the mouse leaves the grid
       }}
     >
-      <div className="bg-[#D2DAFF] justify-center flex border border-white">
+      <div className="justify-center flex">
         {letters.map((row, rowIndex) => (
           <div key={rowIndex} className="">
             {row.map((letter, colIndex) => (
@@ -97,9 +99,9 @@ function Grid({ letters }) {
                 ${
                   selected.includes(getId(rowIndex, colIndex))
                     ? "bg-[#793FDF]"
-                    : ""
+                    : "bg-[#D2DAFF]"
                 }
-                hover:bg-[#B1B2FF] justify-center items-center border 
+                 hover:bg-[#B1B2FF] rounded-md justify-center items-center border 
                 border-white hover:cursor-pointer select-none transition-colors duration-300`}
               >
                 <div

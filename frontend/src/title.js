@@ -14,7 +14,7 @@ const Title = () => {
       <h1
         onClick={handleClickScroll}
         id="Title"
-        className="px-5 py-5 text-gray-800 cursor-pointer hover:text-[#AAC4FF] animate-bounce text-6xl font-bold leading-tight"
+        className="px-5 py-5 text-gray-800 cursor-pointer hover:text-[#AAC4FF] animate-bounce text-6xl font-bold leading-tight select-none"
       >
         Word Search
       </h1>
