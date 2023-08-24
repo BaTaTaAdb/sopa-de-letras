@@ -95,7 +95,7 @@ function Grid({ letters }) {
             {row.map((letter, colIndex) => (
               <div
                 key={colIndex}
-                className={`h-12 w-12 text-2xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex
+                className={`h-18 w-18 text-2xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex
                 ${
                   selected.includes(getId(rowIndex, colIndex))
                     ? "bg-[#793FDF]"
@@ -105,7 +105,7 @@ function Grid({ letters }) {
                 border-white hover:cursor-pointer select-none transition-colors duration-300`}
               >
                 <div
-                  className="w-8 h-8 flex justify-center items-center" // This is the smaller hitbox
+                  className="w-12 h-12 flex justify-center items-center" // This is the smaller hitbox
                   onMouseOver={() => toggleSelect(rowIndex, colIndex)}
                   onMouseDown={() => {
                     isMouseDown.current = true;
