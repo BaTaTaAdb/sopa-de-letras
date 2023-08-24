@@ -9,6 +9,14 @@ function Grid({ letters }) {
   // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
 
+  if (!Array.isArray(letters)) {
+    // Handle incorrect value of "letters"
+    console.error(
+      'Invalid prop "letters" provided to Grid. Expected an array.'
+    );
+    return null;
+  }
+
   // Function to determine the direction of selection between two cells
   const getOrientation = (start, end) => {
     const dr = end.row - start.row;
