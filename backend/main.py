@@ -1,5 +1,3 @@
-from typing import Any
-
 from fastapi import FastAPI
 from gamesdl import game_logic
 from fastapi.middleware.cors import CORSMiddleware
@@ -43,10 +41,10 @@ async def root():
 
 
 @app.get('/get-letters', response_model=list[list[str]])
-async def get_letters() -> Any:
+async def get_letters():
     return LETTERS
 
 
 @app.get('/get-words')
-async def get_words() -> Any:
+async def get_words():
     return WORDS
