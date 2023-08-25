@@ -9,54 +9,34 @@ const App = () => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
+  // Generic fetch function
+  const fetchData = async (url, setData) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error(
+        "There was a problem with the fetch operation:",
+        error.message
+      );
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Fetch letters from API
   useEffect(() => {
-    fetch("http://localhost:8000/get-letters")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `Network response was not ok: ${response.statusText}`
-          );
-        }
-        return response.json();
-      })
-      .then((letters) => {
-        setLetters(letters);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(
-          "There was a problem with the fetch operation:",
-          error.message
-        );
-        setError(error);
-        setLoading(false);
-      });
+    fetchData("http://localhost:8000/get-letters", setLetters);
   }, []);
 
   // Fetch words from API
   useEffect(() => {
-    fetch("http://localhost:8000/get-words")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `Network response was not ok: ${response.statusText}`
-          );
-        }
-        return response.json();
-      })
-      .then((words) => {
-        setWords(words);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(
-          "There was a problem with the fetch operation:",
-          error.message
-        );
-        setError(error);
-        setLoading(false);
-      });
+    fetchData("http://localhost:8000/get-words", setWords);
   }, []);
 
   if (loading) return <div>Loading...</div>;
