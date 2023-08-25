@@ -33,8 +33,8 @@ LETTERS = [
     ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
 ]
 
-WORDS = [{"word": "AA", "coords": [(0, 0), (0, 1)]},
-         {"word": "BB", "coords": [(0, 1), (1, 1)]}]
+WORDS = [{"AA": {"coords": [(0, 0), (0, 1)]}},
+         {"BB": {"coords": [(1, 0), (1, 1)]}}]
 
 
 @app.get('/')

@@ -22,7 +22,6 @@ const App = () => {
       })
       .then((letters) => {
         setLetters(letters);
-        console.log(letters);
         setLoading(false);
       })
       .catch((error) => {
@@ -48,7 +47,6 @@ const App = () => {
       })
       .then((words) => {
         setWords(words);
-        console.log(words);
         setLoading(false);
       })
       .catch((error) => {
@@ -70,7 +68,7 @@ const App = () => {
       <div className="gap-4 px-8 flex flex-row items-center justify-center">
         <WordsList words={words} />
         <div className="invisible px-8">Boas! </div>
-        <Grid letters={letters} />
+        <Grid letters={letters} words={words} />
       </div>
     </div>
   );

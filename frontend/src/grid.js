@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-function Grid({ letters }) {
+function Grid({ letters, words }) {
   // State for selected cells and their order
   const [selected, setSelected] = useState([]);
   const [orderOfSelection, setOrderOfSelection] = useState([]);
@@ -17,6 +17,32 @@ function Grid({ letters }) {
     );
     return null;
   }
+
+  const compareCoordsAndWord = (wordsArray, listFormat) => {
+    for (let wordObj of wordsArray) {
+      // Extract word and coordinates from the current dictionary model
+      const wordFromDict = Object.keys(wordObj)[0];
+      const coordsFromDict = wordObj[wordFromDict].coords;
+
+      // Convert word from list format to string format for comparison
+      const listWord = listFormat[0].join("");
+
+      // Convert the listFormat coordinates to the format used in WORDS for comparison
+      const convertedListCoords = listFormat[1].map((coord) => [
+        coord.x,
+        coord.y,
+      ]);
+
+      // Check comparison result
+      if (
+        wordFromDict === listWord &&
+        JSON.stringify(coordsFromDict) === JSON.stringify(convertedListCoords)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
 
   // Function to determine the direction of selection between two cells
   const getOrientation = (start, end) => {
@@ -85,6 +111,10 @@ function Grid({ letters }) {
     if (orderOfSelection.length !== 0) {
       console.log("Order of selected letters:", orderOfSelection);
       console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
+    }
+    // TODO: Confirm if the word exists in order
+    if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
+      console.log("YOOOOOOOOOOOO! WORDS AND STUFF!!");
     }
     setSelected([]);
     setOrderOfSelection([]);
