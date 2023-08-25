@@ -10,33 +10,30 @@ const App = () => {
   const [error, setError] = useState(null);
 
   // Generic fetch function
-  const fetchData = async (url, setData) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
-      }
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error(
-        "There was a problem with the fetch operation:",
-        error.message
-      );
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Fetch letters from API
   useEffect(() => {
-    fetchData("http://localhost:8000/get-letters", setLetters);
-  }, []);
-
-  // Fetch words from API
-  useEffect(() => {
-    fetchData("http://localhost:8000/get-words", setWords);
+    fetch("http://localhost:8000/get-session")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Network response was not ok: ${response.statusText}`
+          );
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLetters(data["letters"]);
+        setWords(data["words"]);
+        console.log(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(
+          "There was a problem with the fetch operation:",
+          error.message
+        );
+        setError(error);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) return <div>Loading...</div>;
