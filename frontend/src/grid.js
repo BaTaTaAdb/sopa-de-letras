@@ -29,13 +29,13 @@ function Grid({ letters, words }) {
 
       // Convert the listFormat coordinates to the format used in WORDS for comparison
       const convertedListCoords = listFormat[1].map((coord) => [
-        coord.x,
         coord.y,
+        coord.x,
       ]);
 
       // Check comparison result
       if (
-        wordFromDict === listWord &&
+        //wordFromDict === listWord &&
         JSON.stringify(coordsFromDict) === JSON.stringify(convertedListCoords)
       ) {
         return true;
@@ -107,14 +107,15 @@ function Grid({ letters, words }) {
   };
   // Function to clear the current selection
   const clearSelection = () => {
-    // TODO: Add here the API fetching!
     if (orderOfSelection.length !== 0) {
-      console.log("Order of selected letters:", orderOfSelection);
-      console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
+      //console.log("Order of selected letters:", orderOfSelection);
+      //console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
     }
     // TODO: Confirm if the word exists in order
+    // console.log(words, [orderOfSelection, positionOfSelection]);
     if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
       console.log("YOOOOOOOOOOOO! WORDS AND STUFF!!");
+    } else {
     }
     setSelected([]);
     setOrderOfSelection([]);
