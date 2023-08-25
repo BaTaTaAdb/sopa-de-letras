@@ -100,7 +100,7 @@ function Grid({ letters, words }) {
         // Update the positionOfSelection state here
         setPositionOfSelection((prev) => [
           ...prev,
-          { x: rowIndex, y: colIndex },
+          { x: colIndex, y: rowIndex },
         ]);
       }
     }
