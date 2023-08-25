@@ -11,17 +11,12 @@ origins = [
     "http://127.0.0.1:3000"
 ]
 
-app.add_middleware(
+"""app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],)
-
-
-
-words = [{"AA": {"coords": [(0, 0), (0, 1)]}},
-         {"BB": {"coords": [(1, 0), (1, 1)]}}]
+    allow_headers=["*"],)"""
 
 
 @app.get('/')
@@ -32,4 +27,5 @@ async def root():
 @app.get('/get-session')
 async def get_session():
     letters, words = gl.get_board_and_words()
-    return {"words": words, "letters": letters}
+    letters = [list(x) for x in letters]
+    return {"letters": letters, "words": words}
