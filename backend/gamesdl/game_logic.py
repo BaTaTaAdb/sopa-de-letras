@@ -113,8 +113,8 @@ def get_board_and_words():
             # loop that places the letters of the word on the board
             board[x, y] = letter.upper()
             word.coords.append((x,y))
-            x += 1*word.orientation[0]
-            y += 1*word.orientation[1]
+            x += word.orientation[0]
+            y += word.orientation[1]
         time += 1
         answers.append({f"{word.word}" : {"coords" : word.coords}})
         
