@@ -1,9 +1,13 @@
-import Grid from "./Grid";
-import Title from "./Title";
+import Grid from "./grid";
+import Title from "./title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
+import WordProvider from "./WordProvider";
 
 const App = () => {
+  // DEBUG ONLY
+  console.log("Rendered");
+
   const [letters, setLetters] = useState([]);
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(null);
@@ -42,11 +46,13 @@ const App = () => {
   return (
     <div className="app bg-[#EEF1FF]">
       <Title />
-      <div className="gap-4 px-8 flex flex-row items-center justify-center">
-        <WordsList words={words} />
-        <div className="invisible px-8">Boas! </div>
-        <Grid letters={letters} words={words} />
-      </div>
+      <WordProvider>
+        <div className="gap-4 px-8 flex flex-row items-center justify-center">
+          <WordsList words={words} />
+          <div className="invisible px-8">Boas! </div>
+          <Grid letters={letters} words={words} />
+        </div>
+      </WordProvider>
     </div>
   );
 };

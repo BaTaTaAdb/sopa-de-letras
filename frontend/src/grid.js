@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import WordContext from "./Context";
 
 function Grid({ letters, words }) {
   // State for selected cells and their order
@@ -9,6 +10,9 @@ function Grid({ letters, words }) {
   const [orientation, setOrientation] = useState(null);
   // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
+
+  // Get context of striked words
+  const { strikeWord } = useContext(WordContext);
 
   if (!Array.isArray(letters)) {
     // Handle incorrect value of "letters"
@@ -115,6 +119,8 @@ function Grid({ letters, words }) {
     // console.log(words, [orderOfSelection, positionOfSelection]);
     if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
       console.log("YOOOOOOOOOOOO! WORDS AND STUFF!!");
+      // Adds word to striken words list
+      strikeWord(orderOfSelection.join("").toLowerCase());
     } else {
     }
     setSelected([]);
