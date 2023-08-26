@@ -1,5 +1,8 @@
 import React, { useState, useRef, useContext } from "react";
 import WordContext from "./Context";
+import useSound from "use-sound";
+import wrongSfx from "./public/wrong.mp3";
+import rightSfx from "./public/right.mp3";
 
 function Grid({ letters, words }) {
   // State for selected cells and their order
@@ -8,12 +11,16 @@ function Grid({ letters, words }) {
   const [positionOfSelection, setPositionOfSelection] = useState([]);
   // State for the direction in which user is currently selecting
   const [orientation, setOrientation] = useState(null);
+  // Ref to track what sound effect is playing
+  const audioRef = useRef(null);
   // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
   // State to track right grids
   const [rightGrids, setRightGrids] = useState([]);
   // Get context of striked words
   const { strikeWord } = useContext(WordContext);
+  const [playRightSound] = useSound(rightSfx, { volume: 0.5 });
+  const [playWrongSound] = useSound(wrongSfx, { volume: 0.2 });
 
   if (!Array.isArray(letters)) {
     // Handle incorrect value of "letters"
@@ -112,9 +119,8 @@ function Grid({ letters, words }) {
   };
   // Function to clear the current selection
   const clearSelection = () => {
-    if (orderOfSelection.length !== 0) {
-      //console.log("Order of selected letters:", orderOfSelection);
-      //console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
+    if (orderOfSelection.length === 0) {
+      return;
     }
     // console.log(words, [orderOfSelection, positionOfSelection]);
     if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
@@ -130,6 +136,9 @@ function Grid({ letters, words }) {
         ]);
       }
       setRightGrids(newRightGrids);
+      playRightSound();
+    } else {
+      playWrongSound();
     }
     setSelected([]);
     setOrderOfSelection([]);
@@ -150,6 +159,7 @@ function Grid({ letters, words }) {
         clearSelection(); // Clear the selection once the mouse leaves the grid
       }}
     >
+      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/wrong.mp3`} />
       <div className="justify-center flex">
         {letters.map((row, rowIndex) => (
           <div key={rowIndex} className="">
