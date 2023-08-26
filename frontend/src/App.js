@@ -3,6 +3,7 @@ import Title from "./title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
 import WordProvider from "./WordProvider";
+import LoadingScreen from "./LoadingScreen";
 
 const App = () => {
   // DEBUG ONLY
@@ -10,10 +11,11 @@ const App = () => {
 
   const [letters, setLetters] = useState([]);
   const [words, setWords] = useState([]);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true); // Initialize loading to true
   const [error, setError] = useState(null);
 
   // Generic fetch function
+  console.log("Started fetching");
   useEffect(() => {
     fetch("http://localhost:8000/get-session")
       .then((response) => {
@@ -25,6 +27,7 @@ const App = () => {
         return response.json();
       })
       .then((data) => {
+        console.log("Ended fetching!");
         setLetters(data["letters"]);
         setWords(data["words"]);
         console.log(data);
@@ -40,7 +43,7 @@ const App = () => {
       });
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingScreen />;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
