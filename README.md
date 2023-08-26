@@ -1,6 +1,6 @@
 # Sopa de Letras - Projecto Fullstack
 
-Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências em desenvolvimento fullstack, utilizando tecnologias actuais como React e TailwindCSS no frontend, e FastAPI no backend.
+Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências em desenvolvimento fullstack, utilizando tecnologias actuais como React e TailwindCSS no frontend, e Flask no backend.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -11,7 +11,7 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 
 **Backend:**
 
-- [FastAPI](https://fastapi.tiangolo.com/)
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/)
 
 ## 🚀 Instruções para Instalação
 
@@ -35,7 +35,7 @@ npm install
 ```
 
 3. **Configuração do Backend:**
-   (Certifique-se que possui todos os pacotes necessários para correr o FastAPI)
+   (Certifique-se que possui todos os pacotes necessários para correr o Flask)
 
 ```bash
 # Aceda à directoria do backend e execute
@@ -47,10 +47,10 @@ python -m pip install -r requirements.txt
 
 4. **Execução da Aplicação:**
 
-- Inicie o backend (FastAPI):
+- Inicie o backend ([Flask](https://flask.palletsprojects.com/en/2.3.x/)):
 
 ```bash
-uvicorn main:app --reload # (uso de uvicorn para iniciar o FastAPI)
+uvicorn main:app --reload # (uso de uvicorn para iniciar o Flask)
 ```
 
 - De seguida, inicie o frontend (React):
