@@ -10,7 +10,8 @@ function Grid({ letters, words }) {
   const [orientation, setOrientation] = useState(null);
   // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
-
+  // State to track right grids
+  const [rightGrids, setRightGrids] = useState([]);
   // Get context of striked words
   const { strikeWord } = useContext(WordContext);
 
@@ -115,13 +116,20 @@ function Grid({ letters, words }) {
       //console.log("Order of selected letters:", orderOfSelection);
       //console.log("Position of selected letters:", positionOfSelection); // Logs the positions of selected letters
     }
-    // TODO: Confirm if the word exists in order
     // console.log(words, [orderOfSelection, positionOfSelection]);
     if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
-      console.log("YOOOOOOOOOOOO! WORDS AND STUFF!!");
+      console.log("That's right!");
       // Adds word to striken words list
       strikeWord(orderOfSelection.join("").toLowerCase());
-    } else {
+      // Adds grid to the rightGrids list
+      let newRightGrids = [...rightGrids];
+      for (let i = 0; i < positionOfSelection.length; i++) {
+        newRightGrids.push([
+          positionOfSelection[i]["y"],
+          positionOfSelection[i]["x"],
+        ]);
+      }
+      setRightGrids(newRightGrids);
     }
     setSelected([]);
     setOrderOfSelection([]);
@@ -152,6 +160,10 @@ function Grid({ letters, words }) {
                 ${
                   selected.includes(getId(rowIndex, colIndex))
                     ? "bg-[#793FDF]"
+                    : rightGrids.some(
+                        (arr) => arr[0] === rowIndex && arr[1] === colIndex
+                      )
+                    ? "bg-green-500"
                     : "bg-[#D2DAFF]"
                 }
                  hover:bg-[#B1B2FF] rounded-md justify-center items-center border 
