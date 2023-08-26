@@ -122,7 +122,6 @@ function Grid({ letters, words }) {
     if (orderOfSelection.length === 0) {
       return;
     }
-    // console.log(words, [orderOfSelection, positionOfSelection]);
     if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
       console.log("That's right!");
       // Adds word to striken words list
@@ -135,7 +134,9 @@ function Grid({ letters, words }) {
           positionOfSelection[i]["x"],
         ]);
       }
+      // Defines new right Grids to change color
       setRightGrids(newRightGrids);
+      // Plays sound effects
       playRightSound();
     } else {
       playWrongSound();
