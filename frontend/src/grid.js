@@ -119,27 +119,27 @@ function Grid({ letters, words }) {
   };
   // Function to clear the current selection
   const clearSelection = () => {
-    if (orderOfSelection.length === 0) {
-      return;
-    }
-    if (compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])) {
-      console.log("That's right!");
-      // Adds word to striken words list
-      strikeWord(orderOfSelection.join("").toLowerCase());
-      // Adds grid to the rightGrids list
-      let newRightGrids = [...rightGrids];
-      for (let i = 0; i < positionOfSelection.length; i++) {
-        newRightGrids.push([
-          positionOfSelection[i]["y"],
-          positionOfSelection[i]["x"],
-        ]);
+    if (orderOfSelection.length >= 2) {
+      if (
+        compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])
+      ) {
+        // Adds word to striken words list
+        strikeWord(orderOfSelection.join("").toLowerCase());
+        // Adds grid to the rightGrids list
+        let newRightGrids = [...rightGrids];
+        for (let i = 0; i < positionOfSelection.length; i++) {
+          newRightGrids.push([
+            positionOfSelection[i]["y"],
+            positionOfSelection[i]["x"],
+          ]);
+        }
+        // Defines new right Grids to change color
+        setRightGrids(newRightGrids);
+        // Plays sound effects
+        playRightSound();
+      } else {
+        playWrongSound();
       }
-      // Defines new right Grids to change color
-      setRightGrids(newRightGrids);
-      // Plays sound effects
-      playRightSound();
-    } else {
-      playWrongSound();
     }
     setSelected([]);
     setOrderOfSelection([]);
