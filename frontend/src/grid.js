@@ -29,7 +29,7 @@ function Grid({ letters, words }) {
       const coordsFromDict = wordObj[wordFromDict].coords;
 
       // Convert word from list format to string format for comparison
-      const listWord = listFormat[0].join("");
+      const listWord = listFormat[0].join("").toLowerCase();
 
       // Convert the listFormat coordinates to the format used in WORDS for comparison
       const convertedListCoords = listFormat[1].map((coord) => [
@@ -39,7 +39,7 @@ function Grid({ letters, words }) {
 
       // Check comparison result
       if (
-        //wordFromDict === listWord &&
+        wordFromDict === listWord &&
         JSON.stringify(coordsFromDict) === JSON.stringify(convertedListCoords)
       ) {
         return true;
