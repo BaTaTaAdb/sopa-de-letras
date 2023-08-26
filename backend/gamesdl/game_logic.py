@@ -56,9 +56,21 @@ def get_board_and_words():
             Random_Word = Word(r.choice(possible_words).strip())
             if Random_Word.size > 10:
                 continue
+            actual_word = ""
             for letter in Random_Word.word:
                 if letter.lower() not in ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o","p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z", "ç", "á", "à", "ã" , "õ", "ó", "ú", "é", "ê", "â"]:
                     exit = True
+                if letter.lower() in ["á", "à", "ã", "â"]:
+                    actual_word += "a"
+                elif letter.lower() in ["õ", "ó"]:
+                    actual_word += "o"
+                elif letter.lower() ==  "ú":
+                    actual_word += "u"
+                elif letter.lower() in ["é", "ê"]:
+                    actual_word += "e"
+                else:
+                    actual_word += letter.lower()
+            Random_Word.word = actual_word
             if exit:
                 continue
             words.append(Random_Word)
@@ -110,7 +122,7 @@ def get_board_and_words():
     for y, row in enumerate(board):
         for x, position in enumerate(row):
             if position == "":
-                board[y,x] = r.choice(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o","p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z", "ç", "á", "à", "ã" , "õ", "ó", "ú", "é", "ê", "â"]).upper()
+                board[y,x] = r.choice(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o","p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z", "ç"]).upper()
     
     return (board, answers)
 
