@@ -11,7 +11,7 @@ COPY . /app
 RUN python -m venv .venv
 
 # Activate venv
-RUN source ./.venv/bin/activate
+RUN source /.venv/bin/activate
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
