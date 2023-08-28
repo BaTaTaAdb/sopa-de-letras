@@ -50,7 +50,7 @@ python -m pip install -r requirements.txt
 - Inicie o backend ([Flask](https://flask.palletsprojects.com/en/2.3.x/)):
 
 ```bash
-uvicorn main:app --reload # (uso de uvicorn para iniciar o Flask)
+python app.py (iniciar o Flask)
 ```
 
 - De seguida, inicie o frontend (React):
