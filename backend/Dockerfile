@@ -14,4 +14,4 @@ RUN python -m venv /opt/venv
 RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Run app.py from waitress serve
-CMD ["/opt/venv/bin/python","waitress-serve", "--port=8000", "--host 0.0.0.0", "app:app"]
+CMD ["/opt/venv/bin/python","-m waitress-serve", "--port=8000", "--host 0.0.0.0", "app:app"]
