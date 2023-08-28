@@ -13,7 +13,7 @@ def root():
 
 
 @app.get('/get-session')
-def get_session():
+async def get_session():
     letters, words = gl.get_board_and_words()
     letters = [list(x) for x in letters]
     return {"letters": letters, "words": words}
