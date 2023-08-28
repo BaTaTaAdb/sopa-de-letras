@@ -6,6 +6,7 @@ import rightSfx from "./public/right.mp3";
 
 function Grid({ letters, words }) {
   // State for selected cells and their order
+  const [gameEnded, setGameEnded] = useState(false);
   const [selected, setSelected] = useState([]);
   const [orderOfSelection, setOrderOfSelection] = useState([]);
   const [positionOfSelection, setPositionOfSelection] = useState([]);
@@ -18,7 +19,7 @@ function Grid({ letters, words }) {
   // State to track right grids
   const [rightGrids, setRightGrids] = useState([]);
   // Get context of striked words
-  const { strikeWord } = useContext(WordContext);
+  const { strikeWord, strickenWords } = useContext(WordContext);
   const [playRightSound] = useSound(rightSfx, { volume: 0.5 });
   const [playWrongSound] = useSound(wrongSfx, { volume: 0.2 });
 
@@ -28,6 +29,13 @@ function Grid({ letters, words }) {
       'Invalid prop "letters" provided to Grid. Expected an array.'
     );
     return null;
+  }
+
+  function forceEndGame() {
+    const extractedWords = words.map((item) => Object.keys(item)[0]);
+    console.log(extractedWords);
+    strikeWord(extractedWords);
+    setGameEnded(true);
   }
 
   const compareCoordsAndWord = (wordsArray, listFormat) => {
@@ -120,24 +128,34 @@ function Grid({ letters, words }) {
   // Function to clear the current selection
   const clearSelection = () => {
     if (orderOfSelection.length >= 2) {
+      const wordToCheck = orderOfSelection.join("").toLowerCase();
       if (
         compareCoordsAndWord(words, [orderOfSelection, positionOfSelection])
       ) {
-        // Adds word to striken words list
-        strikeWord(orderOfSelection.join("").toLowerCase());
-        // Adds grid to the rightGrids list
-        let newRightGrids = [...rightGrids];
-        for (let i = 0; i < positionOfSelection.length; i++) {
-          newRightGrids.push([
-            positionOfSelection[i]["y"],
-            positionOfSelection[i]["x"],
-          ]);
+        // Check if the word is not already striked
+        if (!strickenWords.includes(wordToCheck)) {
+          // Adds grid to the rightGrids list
+          let newRightGrids = [...rightGrids];
+          for (let i = 0; i < positionOfSelection.length; i++) {
+            newRightGrids.push([
+              positionOfSelection[i]["y"],
+              positionOfSelection[i]["x"],
+            ]);
+          }
+          // Defines new right Grids to change color
+          setRightGrids(newRightGrids);
+          // Plays sound effects
+          // console.log("Played rightSfx");
+          playRightSound();
+
+          if (strickenWords.length + 1 === words.length) {
+            setGameEnded(true);
+          }
+          // Adds word to striken words list
+          strikeWord(wordToCheck);
         }
-        // Defines new right Grids to change color
-        setRightGrids(newRightGrids);
-        // Plays sound effects
-        playRightSound();
       } else {
+        // console.log("Played wrongSfx");
         playWrongSound();
       }
     }
@@ -177,6 +195,14 @@ function Grid({ letters, words }) {
                     ? "bg-green-500"
                     : "bg-[#D2DAFF]"
                 }
+                ${
+                  gameEnded &&
+                  !rightGrids.some(
+                    (arr) => arr[0] === rowIndex && arr[1] === colIndex
+                  )
+                    ? "transform translate-y-[96rem] opacity-50 transition-transform duration-4000 ease-in-out z-0"
+                    : ""
+                }
                  hover:bg-[#B1B2FF] rounded-md justify-center items-center border 
                 border-white hover:cursor-pointer select-none transition-colors duration-300`}
               >
@@ -195,6 +221,12 @@ function Grid({ letters, words }) {
           </div>
         ))}
       </div>
+      <button
+        onClick={forceEndGame}
+        className="invisible bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        End Game
+      </button>
     </div>
   );
 }
