@@ -200,7 +200,7 @@ function Grid({ letters, words }) {
                   !rightGrids.some(
                     (arr) => arr[0] === rowIndex && arr[1] === colIndex
                   )
-                    ? "transform translate-y-[96rem] opacity-50 transition-transform duration-4000 ease-in-out z-0"
+                    ? "bg-[#e5e5e5af]"
                     : ""
                 }
                  hover:bg-[#B1B2FF] rounded-md justify-center items-center border 
@@ -214,7 +214,14 @@ function Grid({ letters, words }) {
                     toggleSelect(rowIndex, colIndex);
                   }}
                 >
-                  {letter}
+                  {`${
+                    gameEnded &&
+                    !rightGrids.some(
+                      (arr) => arr[0] === rowIndex && arr[1] === colIndex
+                    )
+                      ? ""
+                      : letter
+                  }`}
                 </div>
               </div>
             ))}

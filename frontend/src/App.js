@@ -29,7 +29,7 @@ const App = () => {
       .then((data) => {
         console.log("Ended fetching!");
         setLetters(data["letters"]);
-        setWords(data["words"]);
+        setWords(data["words"].slice(0, 1));
         console.log(data);
         setLoading(false);
       })
