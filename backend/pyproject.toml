@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy", "flask", "flask[async]"]
+
+[tool.setuptools]
+packages = ["gamesdl"]
+
+[project]
+authors = [{ name = "João Nuno", email = "joaomnuno@gmail.com" }]
+name = "sopa-de-letras-backend"
+version = "0.1"
+description = ""
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
