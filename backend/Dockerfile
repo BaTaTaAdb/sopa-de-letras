@@ -8,13 +8,10 @@ WORKDIR /app
 COPY . /app
 
 # Make .venv
-RUN python -m venv .venv
-
-# Activate venv
-RUN source /.venv/bin/activate
+RUN python -m venv /opt/venv
 
 # Install the required packages
-RUN pip install --no-cache-dir -r requirements.txt
+RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Run app.py from waitress serve
 CMD [waitress-serve, --port=8000, --host 0.0.0.0, app:app]
