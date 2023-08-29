@@ -17,7 +17,7 @@ const App = () => {
   // Generic fetch function
   console.log("Started fetching");
   useEffect(() => {
-    fetch("http://backend:8000/get-session")
+    fetch("/api/get-session")
       .then((response) => {
         if (!response.ok) {
           throw new Error(

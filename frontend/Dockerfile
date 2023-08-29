@@ -22,6 +22,9 @@ FROM nginx:bookworm
 # Copy the build folder from React to the root of nginx (www)
 COPY --from=0 /app/build /usr/share/nginx/html
 
+# Copy the custom nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose port 80
 EXPOSE 80
 
