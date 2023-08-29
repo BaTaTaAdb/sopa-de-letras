@@ -13,5 +13,6 @@ RUN python -m venv /opt/venv
 # Install the required packages
 RUN /opt/venv/bin/python -m pip install --no-cache-dir -r requirements.txt
 
+# TODO: FIX THIS GARBAGE
 # Run app.py from waitress serve
 CMD ["/opt/venv/bin/python","-m waitress", "--port=8000", "--host 0.0.0.0", "app:app"]
