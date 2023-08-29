@@ -3,7 +3,8 @@ from gamesdl import game_logic as gl
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins="http://frontend:80")
+# CORS(app, origins="http://frontend:80")
+CORS(app, origins="*")
 
 
 @app.get('/')
