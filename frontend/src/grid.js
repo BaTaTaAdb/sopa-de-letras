@@ -1,12 +1,11 @@
 import React, { useState, useRef, useContext } from "react";
-import WordContext from "./Context";
+import WordContext from "./WordContext";
 import useSound from "use-sound";
 import wrongSfx from "./public/wrong.mp3";
 import rightSfx from "./public/right.mp3";
 
 function Grid({ letters, words }) {
   // State for selected cells and their order
-  const [gameEnded, setGameEnded] = useState(false);
   const [selected, setSelected] = useState([]);
   const [orderOfSelection, setOrderOfSelection] = useState([]);
   const [positionOfSelection, setPositionOfSelection] = useState([]);
@@ -19,9 +18,9 @@ function Grid({ letters, words }) {
   // State to track right grids
   const [rightGrids, setRightGrids] = useState([]);
   // Get context of striked words
-  const { strikeWord, strickenWords } = useContext(WordContext);
+  const { strikeWord, strickenWords, endGame, gameEnded } = useContext(WordContext);
   const [playRightSound] = useSound(rightSfx, { volume: 0.5 });
-  const [playWrongSound] = useSound(wrongSfx, { volume: 0.2 });
+  const [playWrongSound] = useSound(wrongSfx, { volume: 0.15 });
 
   if (!Array.isArray(letters)) {
     // Handle incorrect value of "letters"
@@ -29,13 +28,6 @@ function Grid({ letters, words }) {
       'Invalid prop "letters" provided to Grid. Expected an array.'
     );
     return null;
-  }
-
-  function forceEndGame() {
-    const extractedWords = words.map((item) => Object.keys(item)[0]);
-    console.log(extractedWords);
-    strikeWord(extractedWords);
-    setGameEnded(true);
   }
 
   const compareCoordsAndWord = (wordsArray, listFormat) => {
@@ -150,7 +142,7 @@ function Grid({ letters, words }) {
           playRightSound();
 
           if (strickenWords.length + 1 === words.length) {
-            setGameEnded(true);
+            endGame(true);
           }
           // Adds word to striken words list
           strikeWord(wordToCheck);
@@ -168,11 +160,11 @@ function Grid({ letters, words }) {
 
   // Function that return the className of each grid
   const getCellClassName = (rowIndex, colIndex) => {
-    let classNames = "h-14 w-14 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex hover:bg-[#B1B2FF] rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
+    let classNames = "h-12 w-12 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex hover:bg-[#B1B2FF] rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
 
     if (selected.includes(getId(rowIndex, colIndex))) {
       classNames += " bg-[#793FDF]";
-    } else if (rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex)) {
+    } else if ((rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex))) {
       classNames += " bg-green-500";
     } else {
       classNames += " bg-[#D2DAFF]";
@@ -187,7 +179,7 @@ function Grid({ letters, words }) {
   return (
     <div
       id="grid"
-      className="flex justify-between items-center h-screen"
+      className="flex justify-between"
       onMouseUp={() => {
         isMouseDown.current = false;
         clearSelection(); // Clear the selection when mouse button is released
@@ -227,12 +219,6 @@ function Grid({ letters, words }) {
           </div>
         ))}
       </div>
-      <button
-        onClick={forceEndGame}
-        className="invisible bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        End Game
-      </button>
     </div>
   );
 }
