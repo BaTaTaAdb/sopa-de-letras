@@ -125,6 +125,7 @@ function Grid({ letters, words }) {
       }
     }
   };
+
   // Function to clear the current selection
   const clearSelection = () => {
     if (orderOfSelection.length >= 2) {
@@ -165,6 +166,25 @@ function Grid({ letters, words }) {
     setOrientation(null); // Reset orientation on mouse release
   };
 
+  // Function that return the className of each grid
+  const getCellClassName = (rowIndex, colIndex) => {
+    let classNames = "h-14 w-14 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex hover:bg-[#B1B2FF] rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
+  
+    if (selected.includes(getId(rowIndex, colIndex))) {
+      classNames += " bg-[#793FDF]";
+    } else if (rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex)) {
+      classNames += " bg-green-500";
+    } else {
+      classNames += " bg-[#D2DAFF]";
+    }
+  
+    if (gameEnded && !rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex)) {
+      classNames += " bg-[#e5e5e5af]";
+    }
+  
+    return classNames;
+  };
+  
   return (
     <div
       id="grid"
@@ -185,26 +205,7 @@ function Grid({ letters, words }) {
             {row.map((letter, colIndex) => (
               <div
                 key={colIndex}
-                className={`h-14 w-14 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex
-                ${
-                  selected.includes(getId(rowIndex, colIndex))
-                    ? "bg-[#793FDF]"
-                    : rightGrids.some(
-                        (arr) => arr[0] === rowIndex && arr[1] === colIndex
-                      )
-                    ? "bg-green-500"
-                    : "bg-[#D2DAFF]"
-                }
-                ${
-                  gameEnded &&
-                  !rightGrids.some(
-                    (arr) => arr[0] === rowIndex && arr[1] === colIndex
-                  )
-                    ? "bg-[#e5e5e5af]"
-                    : ""
-                }
-                 hover:bg-[#B1B2FF] rounded-md justify-center items-center border 
-                border-white hover:cursor-pointer select-none transition-colors duration-300`}
+                className={getCellClassName(rowIndex, colIndex)}
               >
                 <div
                   className="w-8 h-8 flex justify-center items-center" // This is the smaller hitbox

@@ -1,5 +1,5 @@
 import Grid from "./grid";
-import Title from "./Title";
+//import Title from "./Title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
 import WordProvider from "./WordProvider";
@@ -48,7 +48,6 @@ const App = () => {
 
   return (
     <div className="app bg-[#EEF1FF]">
-      <Title />
       <WordProvider>
         <div className="gap-4 px-8 flex flex-row items-center justify-center">
           <WordsList words={words} />
