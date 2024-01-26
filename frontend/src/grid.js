@@ -169,7 +169,7 @@ function Grid({ letters, words }) {
   // Function that return the className of each grid
   const getCellClassName = (rowIndex, colIndex) => {
     let classNames = "h-14 w-14 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex hover:bg-[#B1B2FF] rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
-  
+
     if (selected.includes(getId(rowIndex, colIndex))) {
       classNames += " bg-[#793FDF]";
     } else if (rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex)) {
@@ -177,14 +177,13 @@ function Grid({ letters, words }) {
     } else {
       classNames += " bg-[#D2DAFF]";
     }
-  
+
     if (gameEnded && !rightGrids.some((arr) => arr[0] === rowIndex && arr[1] === colIndex)) {
       classNames += " bg-[#e5e5e5af]";
     }
-  
     return classNames;
   };
-  
+
   return (
     <div
       id="grid"
@@ -215,14 +214,13 @@ function Grid({ letters, words }) {
                     toggleSelect(rowIndex, colIndex);
                   }}
                 >
-                  {`${
-                    gameEnded &&
+                  {`${gameEnded &&
                     !rightGrids.some(
                       (arr) => arr[0] === rowIndex && arr[1] === colIndex
                     )
-                      ? ""
-                      : letter
-                  }`}
+                    ? ""
+                    : letter
+                    }`}
                 </div>
               </div>
             ))}
