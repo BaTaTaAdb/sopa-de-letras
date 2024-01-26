@@ -32,7 +32,6 @@ bem
 ficar
 dever
 eles
-por aí
 porta
 poder
 coisa
@@ -57,7 +56,6 @@ abrir
 segurar
 outro
 enquanto
-a maioria
 falar
 deixar
 sobre
@@ -180,7 +178,6 @@ frente
 enviar
 bastante
 quebrar
-eu mesmo
 deve
 minuto
 sombrio
@@ -274,7 +271,6 @@ senhora
 menos
 medo
 alguém
-o negócio
 capaz
 cadeira
 esquecer
@@ -453,7 +449,6 @@ americano
 talvez
 assento
 rolar
-de fato
 explodir
 vezes
 pesado
@@ -479,7 +474,6 @@ exceto
 terra
 imaginar
 pausar
-se aproximar
 pescoço
 milha
 maneira
@@ -517,7 +511,6 @@ legal
 escorregar
 construir
 para
-por pouco
 memória
 roupas
 relatório
@@ -561,11 +554,9 @@ carregar
 público
 resolver
 prazer
-em vez de
 descobrir
 cavalheiro
 ouro
-tanto faz
 notícia
 joelho
 brilhante
@@ -798,7 +789,6 @@ noite
 neve
 nível
 idiota
-assim sendo
 contar
 doente
 amanhã
@@ -976,7 +966,6 @@ caixas
 declarar
 arma
 centro
-bem vindo
 delito
 peso
 amante
@@ -992,7 +981,6 @@ paixão
 avançar
 amor
 influenciar
-a menos que
 tempestade
 alimentar
 político
@@ -1053,7 +1041,6 @@ risco
 particularmente
 grau
 antigo
-um pouco
 estilo
 alguém
 possuir
@@ -1083,7 +1070,6 @@ separadamente
 fantasia
 fileira
 ritmo
-duas vezes
 fluir
 paciente
 fingir
@@ -1132,7 +1118,6 @@ louco
 divertida
 orgulho
 masculino
-se engajar
 testar
 armação
 realidade
@@ -1403,7 +1388,6 @@ flutuar
 mistério
 temporada
 proprietário
-para pagar
 cor
 conselho
 parceiro
@@ -1503,7 +1487,6 @@ fruta
 computador
 cotovelo
 descer
-duas perdas
 alpendre
 inchar
 policial
@@ -1533,7 +1516,6 @@ vasto
 confessar
 sacrifício
 chegada
-para idiota
 lição
 quadril
 deixar
@@ -1563,7 +1545,6 @@ resolver
 ajoelhar
 relaxar
 templo
-além de
 revista
 favorito
 assentado
@@ -1573,13 +1554,11 @@ amargo
 apreciar
 ciência
 modelo
-dois arrepios
 diariamente
 discussão
 príncipe
 encanto
 despir
-para concluir
 uniforme
 descrição
 teto
@@ -1620,7 +1599,6 @@ anjo
 gigante
 suspeita
 desconhecido
-para assustar
 igual
 tenda
 rir
@@ -1651,10 +1629,8 @@ italiano
 sobrancelha
 rir
 palácio
-a sério
 recuar
 pintura
-viktigheten
 rainha
 silenciosamente
 pulso
@@ -1670,7 +1646,6 @@ habilidade
 missão
 perseguir
 personalizado
-para cuidar
 método
 vaca
 ansioso
@@ -1689,7 +1664,6 @@ perfurar
 simpatia
 arame
 curiosidade
-dois obrigam
 correia
 parente
 noção
@@ -1747,7 +1721,6 @@ impressionar
 trabalhador
 bala
 tronco
-konkluderer
 pistola
 campo
 brilhante
@@ -1772,7 +1745,6 @@ arranhar
 perfume
 atrair
 desenvolvimento
-dois coxo
 fixar
 empurrar
 médico
@@ -1800,7 +1772,6 @@ enorme
 esmagar
 basquete
 abrigo
-dar palmadinhas
 consciência
 senaste
 dividir
@@ -1814,7 +1785,6 @@ coxa
 reflexão
 departamento
 incomum
-dois convence
 veículo
 pavor
 fundo
@@ -1825,7 +1795,6 @@ totalmente
 benefício
 jantar
 associar
-dois render
 funcionário
 permissão
 costa
@@ -1835,13 +1804,11 @@ título
 tenro
 pesquisa
 bolo
-para resgatar
 agricultor
 violência
 vislumbre
 sugestão
 infância
-dois suspiros
 tolo
 recompensa
 gancho
@@ -1856,7 +1823,6 @@ sensação
 tropeçar
 instrução
 soma
-dois arrepios
 mobiliário
 atraso
 atuação
