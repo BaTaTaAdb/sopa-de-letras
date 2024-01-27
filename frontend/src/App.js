@@ -1,9 +1,11 @@
 import Grid from "./grid";
-import Title from "./title";
+//import Title from "./Title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
 import WordProvider from "./WordProvider";
 import LoadingScreen from "./LoadingScreen";
+import TopBar from "./TopBar";
+import RightMenu from "./rightMenu";
 
 const App = () => {
   // DEBUG ONLY
@@ -47,16 +49,16 @@ const App = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="app bg-[#EEF1FF]">
-      <Title />
+    <div className="flex flex-col min-h-screen bg-[#EEF1FF]">
+      <TopBar />
       <WordProvider>
-        <div className="gap-4 px-8 flex flex-row items-center justify-center">
+        <div className="gap-16 py-8 px-8 flex flex-row justify-center">
           <WordsList words={words} />
-          <div className="invisible px-8">Boas! </div>
           <Grid letters={letters} words={words} />
+          <RightMenu />
         </div>
-      </WordProvider>
-    </div>
+      </WordProvider >
+    </div >
   );
 };
 
