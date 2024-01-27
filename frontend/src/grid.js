@@ -171,7 +171,7 @@ function Grid({ letters, words }) {
 
   // Function that return the className of each grid
   const getCellClassName = (rowIndex, colIndex) => {
-    let classNames = "h-12 w-12 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex hover:bg-[#B1B2FF] rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
+    let classNames = "h-12 w-12 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
 
     const id = getId(rowIndex, colIndex);
 
@@ -182,7 +182,7 @@ function Grid({ letters, words }) {
     } else if (gameEnded && getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
       classNames += " bg-green-500";
     } else {
-      classNames += " bg-[#D2DAFF]";
+      classNames += " bg-[#D2DAFF] hover:bg-[#B1B2FF]";
     }
 
     return classNames;
