@@ -180,7 +180,7 @@ function Grid({ letters, words }) {
     } else if (rightGrids.some(arr => arr[0] === rowIndex && arr[1] === colIndex)) {
       classNames += " bg-green-500";
     } else if (gameEnded && getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
-      classNames += " bg-green-500";
+      classNames += " bg-[#ff5833d4]";
     } else {
       classNames += " bg-[#D2DAFF] hover:bg-[#B1B2FF]";
     }

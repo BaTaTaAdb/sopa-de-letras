@@ -13,9 +13,9 @@ function WordsList({ words }) {
               <li
                 key={index}
                 className={`text-3xl mb-2 
-              ${strickenWords.includes(word) || gameEnded
-                    ? "text-green-500 font-bold"
-                    : "text-gray-800"
+              ${strickenWords.includes(word)
+                    ? "text-green-500"
+                    : gameEnded ? "text-[#ff5833d4]" : "text-gray-800"
                   }`}
               >
                 {word}
