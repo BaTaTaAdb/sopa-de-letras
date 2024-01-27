@@ -75,16 +75,14 @@ def get_board_and_words():
     orientations = [(0, 1), (0, -1), (1, 0), (-1, 0),
                     (1, 1), (-1, 1), (1, -1), (-1, -1)]
     for word in words:
-        condition = False
+        coords = True
         if not time % 2 == 0:
             word.orientation = r.choice(orientations)
             coords = check_letters(word, board, letter_positions)
-            if coords == False:
-                condition = True
-            else:
+            if coords != False:
                 x, y = coords
 
-        if time % 2 == 0 or condition:
+        if time % 2 == 0 or coords:
             while True:
                 word.orientation = r.choice(orientations)
                 x = r.randint(0, 14)
