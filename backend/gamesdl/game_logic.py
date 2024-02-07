@@ -4,7 +4,7 @@ import numpy as np
 
 def check_placement(board, word, x, y, coords_skip=None):
     # Function that checks whether a new word will collide unintentionally with a previously placed word
-    for letter in word.word:
+    for letter in word.letters:
         if not (0 <= x < 15 and 0 <= y < 15):  # Check bounds
             return False
         if board[x, y] != "" and (x, y) != coords_skip and board[x, y] != letter:
@@ -16,23 +16,23 @@ def check_placement(board, word, x, y, coords_skip=None):
 
 class Word:
     def __init__(self, word) -> None:
-        self.word = word
+        self.letters = word
         self.orientation = None
         self.size = len(word)
         self.coords = []
 
 
-def check_letters(word, board, letter_positions):
-    if word.word[0] in letter_positions:
-        for x, y in letter_positions[word.word[0]]:
-            index_in_word = word.word.find(word.word[0])
-            proposed_x = x - index_in_word * word.orientation[0]
-            proposed_y = y - index_in_word * word.orientation[1]
+def check_possible_intersection(word, board, letter_positions):
+    for i in range(len(word.letters)):
+        if word.letters[i] in letter_positions:
+            for x, y in letter_positions[word.word[0]]:
+                index_in_word = word.letters.find(word.letters[0])
+                proposed_x = x - index_in_word * word.orientation[0]
+                proposed_y = y - index_in_word * word.orientation[1]
 
-            if 0 <= proposed_x + word.orientation[0] * (word.size - 1) < 15 and 0 <= proposed_y + word.orientation[1] * (word.size - 1) < 15:
-                if check_placement(board, word, proposed_x, proposed_y, (x, y)):
-                    return (proposed_x, proposed_y)
-                    break
+                if 0 <= proposed_x and proposed_x + word.orientation[0] * (word.size - 1) < 15 and 0 <= proposed_y and proposed_y + word.orientation[1] * (word.size - 1) < 15:
+                    if check_placement(board, word, proposed_x, proposed_y, (x, y)):
+                        return (proposed_x, proposed_y)
     return False
 
 
@@ -52,33 +52,32 @@ def get_board_and_words():
     }
 
     with open("words.txt", "r") as f:
-        possible_words = f.readlines()
-        words = []
-        while len(words) < 10:
-            choice = r.choice(possible_words)
+        list_of_possible_words = f.readlines()
+        board_words = []
+        while len(board_words) < 10:
+            choice = r.choice(list_of_possible_words)
             # Remove the chosen word to avoid duplicates
-            possible_words.remove(choice)
-            Random_Word = Word(choice.strip())
-            if Random_Word.size > 10:
+            list_of_possible_words.remove(choice)
+            random_possible_word = Word(choice.strip())
+            if random_possible_word.size > 10:
                 continue
 
-            word_set = set(Random_Word.word.lower())
+            word_set = set(random_possible_word.letters.lower())
             if not word_set.issubset(valid_letters):
                 continue
 
-            actual_word = "".join(special_to_normal.get(
-                letter.lower(), letter.lower()) for letter in Random_Word.word)
-            Random_Word.word = actual_word
-            words.append(Random_Word)
+            actual_word = "".join(special_to_normal.get(letter.lower(), letter.lower()) for letter in random_possible_word.letters)
+            random_possible_word.letters = actual_word
+            board_words.append(random_possible_word)
 
     time = 0
     orientations = [(0, 1), (0, -1), (1, 0), (-1, 0),
                     (1, 1), (-1, 1), (1, -1), (-1, -1)]
-    for word in words:
+    for word in board_words:
         condition = False
         if not time % 2 == 0:
             word.orientation = r.choice(orientations)
-            coords = check_letters(word, board, letter_positions)
+            coords = check_possible_intersection(word, board, letter_positions)
             if coords == False:
                 condition = True
             else:
@@ -92,7 +91,7 @@ def get_board_and_words():
                 if check_placement(board, word, x, y):
                     break
 
-        for letter in word.word:
+        for letter in word.letters:
             board[x, y] = letter.upper()
             word.coords.append((x, y))
             if time % 2 == 0:
@@ -104,7 +103,6 @@ def get_board_and_words():
 
     fill_choices = list("abcdefghijklmnopqrstuvwxyzç".upper())
     empty_positions = np.where(board == "")
-    board[empty_positions] = np.random.choice(
-        fill_choices, len(empty_positions[0]))
+    board[empty_positions] = np.random.choice(fill_choices, len(empty_positions[0]))
 
     return (board, answers)
