@@ -99,7 +99,7 @@ def get_board_and_words():
             x += word.orientation[0]
             y += word.orientation[1]
         time += 1
-        answers.append({f"{word.word}": {"coords": word.coords}})
+        answers.append({f"{word.letters}": {"coords": word.coords}})
 
     fill_choices = list("abcdefghijklmnopqrstuvwxyzç".upper())
     empty_positions = np.where(board == "")
