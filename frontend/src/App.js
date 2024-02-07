@@ -50,8 +50,8 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EEF1FF]">
-      <TopBar />
       <WordProvider>
+        <TopBar />
         <div className="gap-16 py-8 px-8 flex flex-row justify-center">
           <WordsList words={words} />
           <Grid letters={letters} words={words} />
