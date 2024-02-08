@@ -171,16 +171,18 @@ function Grid({ letters, words }) {
 
   // Function that return the className of each grid
   const getCellClassName = (rowIndex, colIndex) => {
-    let classNames = "h-12 w-12 text-3xl font-extrabold text-gray-800 aspect-w-1 aspect-h-1 flex rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
+    let classNames = "h-12 w-12 text-3xl text-gray-800 font-extrabold aspect-w-1 aspect-h-1 flex rounded-md justify-center items-center border border-white hover:cursor-pointer select-none transition-colors duration-300";
 
     const id = getId(rowIndex, colIndex);
 
     if (selected.includes(id)) {
-      classNames += " bg-[#793FDF]";
+      classNames += " bg-[#793FDF] ";
     } else if (rightGrids.some(arr => arr[0] === rowIndex && arr[1] === colIndex)) {
       classNames += " bg-green-500";
     } else if (gameEnded && getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
-      classNames += " bg-[#ff5833d4]";
+      classNames += " bg-[#ff5833d4] text-gray-800";
+    } else if (gameEnded && !getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
+      classNames += "bg-[#D2DAFF] hover:bg-[#B1B2FF] text-gray-400";
     } else {
       classNames += " bg-[#D2DAFF] hover:bg-[#B1B2FF]";
     }
@@ -222,7 +224,7 @@ function Grid({ letters, words }) {
                     !rightGrids.some(
                       (arr) => arr[0] === rowIndex && arr[1] === colIndex
                     ) && !getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)
-                    ? ""
+                    ? letter
                     : letter
                     }`}
                 </div>
