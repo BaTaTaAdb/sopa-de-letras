@@ -21,9 +21,6 @@ const Timer = ({ timeInSeconds }) => {
                     return prevTime - 1;
                 });
             }, 1000);
-        } else if (!timerRunning && time !== timeInSeconds) {
-            // Optional: Reset the timer when stopped
-            setTime(timeInSeconds);
         }
 
         return () => clearInterval(interval);
