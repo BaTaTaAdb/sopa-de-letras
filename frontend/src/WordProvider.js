@@ -4,7 +4,8 @@ import WordContext from "./WordContext";
 function WordProvider({ children }) {
   const [strickenWords, setStrickenWords] = useState([]);
   const [gameEnded, setGameEnded] = useState(false); // New state for game status
-  const [timerRunning, setTimerRunning] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [time, setTime] = useState(0);
 
 
   const strikeWord = (word) => {
@@ -13,18 +14,16 @@ function WordProvider({ children }) {
 
   const endGame = () => {
     setGameEnded(true); // Function to end the game
+    setGameStarted(false);
   };
 
-  const startTimer = () => {
-    setTimerRunning(true); // Function to start timer
+  const startGame = () => {
+    setGameEnded(false);
+    setGameStarted(true);
   };
-
-  const stopTimer = () => {
-    setTimerRunning(false);
-  }
 
   return (
-    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, timerRunning, startTimer, stopTimer }}>
+    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, startGame, time, setTime, gameStarted }}>
       {children}
     </WordContext.Provider>
   );

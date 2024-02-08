@@ -6,6 +6,7 @@ import WordProvider from "./WordProvider";
 import LoadingScreen from "./LoadingScreen";
 import TopBar from "./TopBar";
 import RightMenu from "./rightMenu";
+import MenuOverlay from "./menuOverlay";
 
 const App = () => {
   // DEBUG ONLY
@@ -57,6 +58,7 @@ const App = () => {
           <Grid letters={letters} words={words} />
           <RightMenu />
         </div>
+        <MenuOverlay />
       </WordProvider >
     </div >
   );
