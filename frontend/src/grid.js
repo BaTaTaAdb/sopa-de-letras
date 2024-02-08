@@ -191,7 +191,7 @@ function Grid({ letters, words }) {
   return (
     <div
       id="grid"
-      className="flex justify-between"
+      className="flex justify-between shadow-lg rounded-lg"
       onMouseUp={() => {
         isMouseDown.current = false;
         clearSelection(); // Clear the selection when mouse button is released
