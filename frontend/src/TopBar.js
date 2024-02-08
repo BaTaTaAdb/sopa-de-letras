@@ -12,11 +12,7 @@ const TopBar = () => {
 
             {/* Timer and Bar */}
             <Timer timeInSeconds={600} />
-
-            {/* Login Button */}
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Login
-            </button>
+            <div></div>
         </div>
     );
 };
