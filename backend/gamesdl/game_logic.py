@@ -25,8 +25,8 @@ class Word:
 def check_possible_intersection(word, board, letter_positions):
     for i in range(len(word.letters)):
         if word.letters[i] in letter_positions:
-            for x, y in letter_positions[word.letters[0]]:
-                index_in_word = word.letters.find(word.letters[0])
+            for x, y in letter_positions[word.letters[i]]:
+                index_in_word = word.letters.find(word.letters[i])
                 proposed_x = x - index_in_word * word.orientation[0]
                 proposed_y = y - index_in_word * word.orientation[1]
 
