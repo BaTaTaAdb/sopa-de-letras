@@ -1,9 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useContext } from 'react';
+import WordContext from './WordContext';
 
 const CustomTimerPopup = () => {
     const [open, setOpen] = useState(false);
     const [minutes, setMinutes] = useState('');
+
+    const { setTime } = useContext(WordContext);
 
     const openModal = () => setOpen(true);
     const closeModal = () => setOpen(false);
@@ -13,6 +16,7 @@ const CustomTimerPopup = () => {
         console.log(`Custom time set to ${minutes} minutes.`);
         // Add your logic to handle the custom time here
         closeModal(); // Close the modal after submitting
+        setTime(minutes * 60)
     };
 
     return (

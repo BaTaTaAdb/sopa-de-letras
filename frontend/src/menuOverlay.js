@@ -8,13 +8,9 @@ const MenuOverlay = () => {
     const [open, setOpen] = useState(true);
     const { startGame, setTime } = useContext(WordContext);
 
-    let timeSelected = 3 * 60;
-
     // Dummy functions to handle button clicks
     const startNewGame = () => {
         console.log('Starting new game...');
-
-        setTime(timeSelected);
         startGame();
         setOpen(false);
     }
@@ -59,19 +55,19 @@ const MenuOverlay = () => {
                                         <div className="grid grid-flow-col gap-2">
                                             <button
                                                 className="w-full flex justify-center rounded-md bg-indigo-500 border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                onClick={() => { console.log('Timer set to 2 minutes'); timeSelected = 2 * 60 }}
+                                                onClick={() => { console.log('Timer set to 3 minutes'); setTime(3 * 60) }}
                                             >
-                                                2min
+                                                3min
                                             </button>
                                             <button
                                                 className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                onClick={() => { console.log('Timer set to 5 minutes'); timeSelected = 5 * 60 }}
+                                                onClick={() => { console.log('Timer set to 5 minutes'); setTime(5 * 60) }}
                                             >
                                                 5min
                                             </button>
                                             <button
                                                 className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                onClick={() => { console.log('Timer set to 10 minutes'); timeSelected = 10 * 60 }}
+                                                onClick={() => { console.log('Timer set to 10 minutes'); setTime(10 * 60) }}
                                             >
                                                 10min
                                             </button>
