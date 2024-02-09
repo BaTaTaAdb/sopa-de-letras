@@ -1,7 +1,10 @@
 import React from "react";
 import { Fragment, useContext, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import WordContext from './WordContext';
+import CustomTime from "./CustomTime";
 
+// ! DEBUG MODE
 
 const ScoreOverlay = () => {
     const [open, setOpen] = useState(true);
