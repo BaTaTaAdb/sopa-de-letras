@@ -182,7 +182,7 @@ function Grid({ letters, words }) {
     } else if (gameEnded && getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
       classNames += " bg-[#ff5833d4] text-gray-800";
     } else if (gameEnded && !getCorrectLetterPositions().some(coord => coord[0] === rowIndex && coord[1] === colIndex)) {
-      classNames += "bg-[#D2DAFF] hover:bg-[#B1B2FF] text-gray-400";
+      classNames += "bg-[#D2DAFF] hover:bg-[#B1B2FF] text-[#b8b894]";
     } else {
       classNames += " bg-[#D2DAFF] hover:bg-[#B1B2FF]";
     }
