@@ -19,7 +19,7 @@ const CustomTimerPopup = () => {
         <>
             {/* Trigger Button */}
             <button
-                className="px-4 py-2 bg-[#793FDF] text-white rounded hover:bg-[#B1B2FF] focus:outline-none focus:ring"
+                className="px-2 py-1 bg-[#793FDF] text-white rounded hover:bg-[#B1B2FF] focus:outline-none focus:ring font-medium"
                 onClick={openModal}
             >
                 Set Custom Time

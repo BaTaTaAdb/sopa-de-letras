@@ -22,7 +22,6 @@ const MenuOverlay = () => {
     const loadLastGame = () => {
         console.log('Loading last game...');
     }
-    // Add more handlers for each button as needed
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -57,7 +56,7 @@ const MenuOverlay = () => {
                                     </Dialog.Title>
                                     <div className="mt-2 space-y-4 py-8">
                                         {/* Timer buttons */}
-                                        <div className="grid grid-cols-4 gap-2">
+                                        <div className="grid grid-flow-col gap-2">
                                             <button
                                                 className="w-full flex justify-center rounded-md bg-indigo-500 border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 onClick={() => { console.log('Timer set to 2 minutes'); timeSelected = 2 * 60 }}
@@ -76,10 +75,10 @@ const MenuOverlay = () => {
                                             >
                                                 10min
                                             </button>
-                                            <CustomTime></CustomTime>
+                                            <CustomTime />
                                         </div>
 
-                                        <div className='grid grid-cols-2 gap-2'>
+                                        <div className='grid grid-flow-col gap-2'>
                                             <button
                                                 className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 onClick={startNewGame}
