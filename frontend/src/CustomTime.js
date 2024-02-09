@@ -19,7 +19,8 @@ const CustomTimerPopup = () => {
         <>
             {/* Trigger Button */}
             <button
-                className="px-2 py-1 bg-[#793FDF] text-white rounded hover:bg-[#B1B2FF] focus:outline-none focus:ring font-medium"
+                //className="px-2 py-1 bg-[#793FDF] text-white rounded hover:bg-[#B1B2FF] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm border border-gray-300"
+                className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 onClick={openModal}
             >
                 Set Custom Time

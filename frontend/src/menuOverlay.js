@@ -92,8 +92,6 @@ const MenuOverlay = () => {
                                                 Carregar último jogo
                                             </button>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </Dialog.Panel>

@@ -1,5 +1,4 @@
 import Grid from "./grid";
-//import Title from "./Title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
 import WordProvider from "./WordProvider";
