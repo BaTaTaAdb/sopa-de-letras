@@ -1,7 +1,8 @@
-// HelpBox.js
+
+// AboutBox.js
 import React from 'react';
 
-const HelpBox = ({ onClose }) => {
+const AboutBox = ({ onClose }) => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-4 rounded-lg shadow-lg relative max-w-md w-full mx-4"> 
@@ -11,13 +12,13 @@ const HelpBox = ({ onClose }) => {
                 >
                     &#x2715; {/* Cross symbol */}
                 </button>
-                <h2 className="text-lg font-bold mb-2">Help</h2>
+                <h2 className="text-lg font-bold mb-2">About</h2>
                 <p className="text-justify">
-                    On the left there is a list of all the hidden words in the grid. The objective is to find all the hidden words before the clock runs out. Words can be vertical, horizontal, or diagonal. 
+                  This word search game is designed to provide fun and engaging puzzles. It started out by creating the API that would connect the backend with the frontend. Then, we developed the backend and frontend seperately, while comunicating and helping out each other implement new features. 
                 </p>
             </div>
         </div>
     );
 };
 
-export default HelpBox;
+export default AboutBox;
