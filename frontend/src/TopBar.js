@@ -12,8 +12,9 @@ const TopBar = () => {
 
     return (
         <div className="flex justify-between items-center bg-gray-800 p-2">
+
             <div className="text-white">
-                Level: {/* Your level logic here */}
+                Score: {strickenWords.length}/10
             </div>
             <Timer timeInSeconds={600} />
             <div className="flex"> {/* Container for buttons */}

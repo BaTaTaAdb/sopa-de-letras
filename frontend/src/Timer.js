@@ -1,21 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import WordContext from './WordContext';
 
 const Timer = ({ timeInSeconds }) => {
-    const [time, setTime] = useState(timeInSeconds);
-    const { endGame, timerRunning, stopTimer } = useContext(WordContext);
+    const { endGame, setTime, time, gameStarted } = useContext(WordContext);
     let interval;
 
     useEffect(() => {
         let interval;
 
-        if (timerRunning) {
+        if (gameStarted) {
             interval = setInterval(() => {
                 setTime(prevTime => {
                     if (prevTime <= 1) {
                         clearInterval(interval);
                         endGame();
-                        stopTimer(false); // Stop the timer
                         return 0;
                     }
                     return prevTime - 1;
@@ -24,16 +22,16 @@ const Timer = ({ timeInSeconds }) => {
         }
 
         return () => clearInterval(interval);
-    }, [time, timerRunning, timeInSeconds, endGame, stopTimer]);
+    }, [time, gameStarted, timeInSeconds, endGame, setTime]);
 
 
 
     useEffect(() => {
-        if (time <= 0) {
+        if (time <= 0 && gameStarted) {
             clearInterval(interval);
             endGame();
         }
-    }, [endGame, time, interval]);
+    }, [endGame, time, interval, gameStarted]);
 
     // Convert time to mm:ss format
     const formatTime = () => {

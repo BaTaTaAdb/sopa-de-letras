@@ -1,11 +1,12 @@
 import Grid from "./grid";
-//import Title from "./Title";
 import React, { useState, useEffect } from "react";
 import WordsList from "./wordsList";
 import WordProvider from "./WordProvider";
 import LoadingScreen from "./LoadingScreen";
 import TopBar from "./TopBar";
 import RightMenu from "./rightMenu";
+import MenuOverlay from "./menuOverlay";
+import ScoreOverlay from "./ScoreOverlay";
 
 const App = () => {
   // DEBUG ONLY
@@ -57,6 +58,8 @@ const App = () => {
           <Grid letters={letters} words={words} />
           <RightMenu />
         </div>
+        <MenuOverlay />
+        <ScoreOverlay />
       </WordProvider >
     </div >
   );
