@@ -1631,6 +1631,7 @@ rir
 palácio
 recuar
 pintura
+viktigheten
 rainha
 silenciosamente
 pulso
@@ -1721,6 +1722,7 @@ impressionar
 trabalhador
 bala
 tronco
+konkluderer
 pistola
 campo
 brilhante

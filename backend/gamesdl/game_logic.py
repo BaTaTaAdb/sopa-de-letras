@@ -51,7 +51,7 @@ def get_board_and_words():
         "é": "e", "ê": "e"
     }
 
-    with open("words.txt", "r") as f:
+    with open("corrected_words.txt", "r") as f:
         list_of_possible_words = f.readlines()
         board_words = []
         while len(board_words) < 10:
