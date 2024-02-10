@@ -13,7 +13,7 @@ const HelpBox = ({ onClose }) => {
                 </button>
                 <h2 className="text-lg font-bold mb-2">Help</h2>
                 <p>
-                    Find all the hidden words in the grid. Words can be vertical, horizontal, or diagonal.
+                    On the left there is a list of all the hidden words in the grid. The objective is to find all the hidden words. Words can be vertical, horizontal, or diagonal. 
                 </p>
             </div>
         </div>
