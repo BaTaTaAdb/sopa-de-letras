@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import CustomTime from "./CustomTime"
 import WordContext from './WordContext';
@@ -6,22 +6,30 @@ import WordContext from './WordContext';
 
 const MenuOverlay = () => {
     const [open, setOpen] = useState(true);
-    const { startGame, setTime } = useContext(WordContext);
+    const { startGame, setTime, showingMainMenu, showMainMenu } = useContext(WordContext);
 
-    // Dummy functions to handle button clicks
+    useEffect(() => {
+        // Open the dialog when game ends
+        if (showingMainMenu) {
+            setOpen(true);
+            showMainMenu(false);
+        }
+    }, [showingMainMenu, showMainMenu]); // Dependency array includes gameEnded
+
     const startNewGame = () => {
         console.log('Starting new game...');
         startGame();
         setOpen(false);
     }
 
+    // ! Dummy functions to handle loading game
     const loadLastGame = () => {
         console.log('Loading last game...');
     }
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="flex z-10" onClose={setOpen}>
+            <Dialog as="div" className="flex z-10" onClose={startNewGame}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -54,7 +62,7 @@ const MenuOverlay = () => {
                                         {/* Timer buttons */}
                                         <div className="grid grid-flow-col gap-2">
                                             <button
-                                                className="w-full flex justify-center rounded-md bg-indigo-500 border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                className="w-full flex justify-center rounded-md bg-indigo-500 border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-indigo-300 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 onClick={() => { console.log('Timer set to 3 minutes'); setTime(3 * 60) }}
                                             >
                                                 3min

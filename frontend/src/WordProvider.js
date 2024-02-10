@@ -5,7 +5,8 @@ function WordProvider({ children }) {
   const [strickenWords, setStrickenWords] = useState([]);
   const [gameEnded, setGameEnded] = useState(false); // New state for game status
   const [gameStarted, setGameStarted] = useState(false);
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(3 * 60);
+  const [showingMainMenu, showMainMenu] = useState(3 * 60);
 
 
   const strikeWord = (word) => {
@@ -23,7 +24,7 @@ function WordProvider({ children }) {
   };
 
   return (
-    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, startGame, time, setTime, gameStarted }}>
+    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, startGame, time, setTime, gameStarted, showingMainMenu, showMainMenu }}>
       {children}
     </WordContext.Provider>
   );

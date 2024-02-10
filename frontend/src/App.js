@@ -6,6 +6,7 @@ import LoadingScreen from "./LoadingScreen";
 import TopBar from "./TopBar";
 import RightMenu from "./rightMenu";
 import MenuOverlay from "./menuOverlay";
+import ScoreOverlay from "./ScoreOverlay";
 
 const App = () => {
   // DEBUG ONLY
@@ -58,6 +59,7 @@ const App = () => {
           <RightMenu />
         </div>
         <MenuOverlay />
+        <ScoreOverlay />
       </WordProvider >
     </div >
   );
