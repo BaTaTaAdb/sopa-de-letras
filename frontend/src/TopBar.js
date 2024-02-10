@@ -1,13 +1,16 @@
 // TopBar.js
-import React from 'react';
+import { React, useContext } from 'react';
 import Timer from './Timer';
+import WordContext from './WordContext';
+
 
 const TopBar = () => {
+    const { strickenWords } = useContext(WordContext);
     return (
         <div className="flex justify-between items-center bg-gray-800 p-2">
-            {/* Level Number */}
+            {/* Score Number */}
             <div className="text-white">
-                Level: {/* Your level logic here */}
+                Score: {strickenWords.length}/10
             </div>
 
             {/* Timer and Bar */}
