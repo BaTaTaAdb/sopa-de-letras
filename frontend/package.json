@@ -23,7 +23,9 @@
     "build": "react-scripts build",
     "build:css": "tailwindcss build src/tailwind.css -o src/index.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -b master -e /frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "https://BaTaTaAdb.github.io/sopa-de-letras/frontend",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
