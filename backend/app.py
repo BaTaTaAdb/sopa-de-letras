@@ -3,12 +3,11 @@ from gamesdl import game_logic as gl
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000",
-     "http://127.0.0.1:3000", "http://10.7.154.235:3000"])
+CORS(app)
 
 
 @app.get('/')
-def root():
+async def root():
     return {"message": "Hello World"}
 
 
@@ -20,4 +19,4 @@ async def get_session():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=False, port=8000)
