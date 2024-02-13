@@ -1,5 +1,5 @@
 // TopBar.js
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import Timer from './Timer';
 import HelpBox from './HelpBox';
 import WordContext from './WordContext';
@@ -8,7 +8,7 @@ import AboutBox from './AboutBox';
 const TopBar = () => {
     const [showHelp, setShowHelp] = useState(false);
     const { strickenWords } = useContext(WordContext);
-    const [showAbout, setShowAbout] = useState(false); 
+    const [showAbout, setShowAbout] = useState(false);
 
     return (
         <div className="flex justify-between items-center bg-gray-800 p-2">

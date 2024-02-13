@@ -4,11 +4,14 @@ import "./index.css";
 //import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { StrictMode } from "react";
+import WordProvider from "./WordProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
-    <App />
+    <WordProvider>
+      <App />
+    </WordProvider>
   </StrictMode>
 );
 
