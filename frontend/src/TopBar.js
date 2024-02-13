@@ -1,28 +1,38 @@
 // TopBar.js
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import Timer from './Timer';
+import HelpBox from './HelpBox';
+import WordContext from './WordContext';
+import AboutBox from './AboutBox';
 
 const TopBar = () => {
+    const [showHelp, setShowHelp] = useState(false);
+    const { strickenWords } = useContext(WordContext);
+    const [showAbout, setShowAbout] = useState(false);
+
     return (
         <div className="flex justify-between items-center bg-gray-800 p-2">
-            {/* Level Number */}
+
             <div className="text-white">
-                Level: {/* Your level logic here */}
+                Score: {strickenWords.length}/10
             </div>
-
-            {/* Timer and Bar */}
-            <div className="flex flex-col items-center">
-                <div className="text-white">
-                    Timer: 10:00
-                </div>
-                <div className="w-full bg-gray-700">
-                    <div className="bg-blue-500" style={{ width: '50%' }}> {/* Dynamic width based on timer */}</div>
-                </div>
+            <Timer timeInSeconds={600} />
+            <div className="flex"> {/* Container for buttons */}
+                <button
+                    onClick={() => setShowHelp(true)}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                >
+                    Help
+                </button>
+                <button
+                    onClick={() => setShowAbout(true)}
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                >
+                    About
+                </button>
             </div>
-
-            {/* Login Button */}
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Login
-            </button>
+            {showHelp && <HelpBox onClose={() => setShowHelp(false)} />}
+            {showAbout && <AboutBox onClose={() => setShowAbout(false)} />}
         </div>
     );
 };
