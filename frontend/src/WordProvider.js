@@ -9,6 +9,8 @@ function WordProvider({ children }) {
   const [time, setTime] = useState(5 * 60);
   const [showingMainMenu, showMainMenu] = useState(false);
   const [triggerBoard, setTriggerBoard] = useState(false);
+  // State to track right grids
+  const [rightGrids, setRightGrids] = useState([]);
 
   const strikeWord = (word) => {
     setStrickenWords((prevWords) => [...prevWords, word]);
@@ -22,6 +24,8 @@ function WordProvider({ children }) {
   const startGame = () => {
     setGameEnded(false);
     setGameStarted(true);
+    setStrickenWords([]);
+    setRightGrids([]);
   };
 
   const loadNewBoard = () => {
@@ -30,7 +34,7 @@ function WordProvider({ children }) {
   };
 
   return (
-    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, startGame, time, setTime, gameStarted, showingMainMenu, showMainMenu, triggerBoard, loadNewBoard, setTriggerBoard }}>
+    <WordContext.Provider value={{ strickenWords, strikeWord, gameEnded, endGame, startGame, time, setTime, gameStarted, showingMainMenu, showMainMenu, triggerBoard, loadNewBoard, setTriggerBoard, rightGrids, setRightGrids }}>
       {children}
     </WordContext.Provider>
   );

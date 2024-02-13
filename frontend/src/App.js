@@ -10,7 +10,7 @@ import WordContext from './WordContext';
 
 const App = () => {
   // DEBUG ONLY
-  console.log("Rendered");
+  // console.log("Rendered");
 
   const [letters, setLetters] = useState([]);
   const [words, setWords] = useState([]);
@@ -19,12 +19,12 @@ const App = () => {
   const { triggerBoard, setTriggerBoard } = useContext(WordContext);
 
   // Generic fetch function
-  console.log("Started fetching");
   useEffect(() => {
     if (triggerBoard || loading) {
       console.log(triggerBoard, loading)
       console.log("Game ended. Fetching new board...");
 
+      console.log("Started fetching");
       // setLoading(true); // Show loading screen while fetching
       fetch("http://localhost:8000/get-session")
         .then((response) => {
