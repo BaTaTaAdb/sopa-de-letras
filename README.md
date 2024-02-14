@@ -12,6 +12,7 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 **Backend:**
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/)
+- [Gunicorn](https://gunicorn.org)
 
 ## 🚀 Instruções para Instalação
 
@@ -23,7 +24,7 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmj
 
 ```bash
 git clone https://github.com/BaTaTaAdb/sopa-de-letras.git
-cd directoria_do_projecto
+cd sopa-de-letras
 ```
 
 2. **Instalação das Dependências:**
@@ -38,11 +39,11 @@ npm install
    (Certifique-se que possui todos os pacotes necessários para correr o Flask)
 
 ```bash
-# Aceda à directoria do backend e execute
+# Aceda à directoria do backend e execute (instruções para Linux)
 cd backend
 python -m venv venv
 source "./venv/Scripts/activate"
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 4. **Execução da Aplicação:**
@@ -50,7 +51,8 @@ python -m pip install -r requirements.txt
 - Inicie o backend ([Flask](https://flask.palletsprojects.com/en/2.3.x/)):
 
 ```bash
-python app.py (iniciar o Flask)
+cd backend
+python app.py (iniciar o Flask) # Inicia o servidor na versão de desenvolvimento
 ```
 
 - De seguida, inicie o frontend (React):
@@ -69,6 +71,12 @@ npm install -g serve
 serve -s build # Serve o servidor já na sua versão de produção
 ```
 
+- Use um servidor de WSGI para o backend (Unicorn):
+
+```bash
+gunicorn -w 4 -b 0.0.0.0:25590 app:app
+```
+
 Após completar estes passos, a aplicação deverá estar a correr no seu ambiente local!
 
 ## 📝 Contribuição
@@ -81,4 +89,6 @@ Este projecto está licenciado sob a licença MIT - consulte o arquivo [LICENSE]
 
 ---
 
-Desenvolvido com ❤️ por **João Nuno** e **Pedro Elias**.
+Desenvolvido por **João Nuno** e **Pedro Elias**.
+
+Hosted com ❤️ pelo GitHub.
