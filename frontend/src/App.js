@@ -26,7 +26,7 @@ const App = () => {
 
       console.log("Started fetching");
       // setLoading(true); // Show loading screen while fetching
-      fetch("http://localhost:8000/get-session")
+      fetch("https://connect.codingdome.com:25590/get-session")
         .then((response) => {
           if (!response.ok) {
             throw new Error(

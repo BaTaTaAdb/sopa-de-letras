@@ -45,7 +45,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://BaTaTaAdb.github.io/sopa-de-letras/frontend",
+  "homepage": "https://BaTaTaAdb.github.io/sopa-de-letras/",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
