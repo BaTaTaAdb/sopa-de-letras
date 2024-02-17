@@ -15,7 +15,7 @@ const MenuOverlay = () => {
             showMainMenu(false);
             setTime(5 * 60);
         }
-    }, [showingMainMenu, showMainMenu, setTime]); // Dependency array includes gameEnded
+    }, [showingMainMenu, showMainMenu, setTime]);
 
     const startNewGame = () => {
         console.log('Starting new game...');
@@ -24,10 +24,7 @@ const MenuOverlay = () => {
         loadNewBoard();
     }
 
-    // ! Dummy functions to handle loading game
-    const loadLastGame = () => {
-        console.log('Loading last game...');
-    }
+   
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -64,7 +61,7 @@ const MenuOverlay = () => {
                                         {/* Timer buttons */}
                                         <div className="grid grid-flow-col gap-2">
                                             <button
-                                                className="w-full flex justify-center rounded-md bg-indigo-500 border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-indigo-300 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 onClick={() => { console.log('Timer set to 3 minutes'); setTime(5 * 60) }}
                                             >
                                                 5min
@@ -89,14 +86,9 @@ const MenuOverlay = () => {
                                                 className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                 onClick={startNewGame}
                                             >
-                                                Iniciar novo jogo
+                                                Start
                                             </button>
-                                            <button
-                                                className="w-full flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                onClick={loadLastGame}
-                                            >
-                                                Carregar último jogo
-                                            </button>
+                                            
                                         </div>
                                     </div>
                                 </div>
