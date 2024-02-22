@@ -55,7 +55,7 @@ const MenuOverlay = () => {
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all">
                                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                     <Dialog.Title as="h3" className="text-4xl leading-6 font-semibold text-gray-900">
-                                        Sopa de letras
+                                        Word Search
                                     </Dialog.Title>
                                     <div className="mt-2 space-y-4 py-8">
                                         {/* Timer buttons */}
