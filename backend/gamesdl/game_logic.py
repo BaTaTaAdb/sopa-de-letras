@@ -101,8 +101,9 @@ def get_board_and_words():
         time += 1
         answers.append({f"{word.letters}": {"coords": word.coords}})
 
-    fill_choices = list("abcdefghijklmnopqrstuvwxyzç".upper())
+    fill_choices = list("abcdefghijklmnopqrstuvwxyz".upper())
     empty_positions = np.where(board == "")
     board[empty_positions] = np.random.choice(fill_choices, len(empty_positions[0]))
+
 
     return (board, answers)

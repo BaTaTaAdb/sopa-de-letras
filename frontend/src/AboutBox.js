@@ -14,7 +14,20 @@ const AboutBox = ({ onClose }) => {
                 </button>
                 <h2 className="text-lg font-bold mb-2">About</h2>
                 <p className="text-justify">
-                  This word search game is designed to provide fun and engaging puzzles. It started out by creating the API that would connect the backend with the frontend. Then, we developed the backend and frontend seperately, while comunicating and helping out each other implement new features. 
+                Our word search app represents the culmination of our enthusiasm and efforts in exploring game development for web applications. A word search game emerged as the ideal candidate for this exploration due to its simplicity and wide appeal.
+                </p>
+                <p className="text-justify">
+                The project commenced with a division of labor, segregating tasks between backend and frontend development. We opted for Flask as the API to facilitate communication between the Python-powered backend and the React-based frontend. This choice was instrumental in ensuring a seamless interaction between the two components of our application.
+                </p>
+
+                <p className="text-justify">
+                One of the pivotal moments in our development journey was the design phase, where numerous game design approaches were deliberated. After a thorough examination and discarding of several strategies, we settled on a functional and straightforward method for placing words on the grid. This method was not only tailored specifically for our application but was also designed with future enhancements and improvements in mind.
+                </p>
+                <p className="text-justify">
+                As we advanced, our focus shifted toward refining the aesthetics of the frontend. This phase was crucial in defining the visual appeal of our game and ensuring a user-friendly experience. The culmination of our project was marked by the creation of the website that hosts our application, representing the final piece of our development puzzle.
+                </p>
+                <p className="text-justify">
+                Throughout the development process, we made several decisions that shaped the direction and outcome of our project. Each decision, from the choice of technologies to the design considerations, was made with the objective of creating a fun, engaging, and accessible word search game. Our journey from conception to completion was a testament to our dedication and passion for game development, and we are proud to present our word search app as the fruit of our labor.
                 </p>
             </div>
         </div>
