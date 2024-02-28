@@ -5,14 +5,16 @@ import React from 'react';
 const AboutBox = ({ onClose }) => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-4 rounded-lg shadow-lg relative max-w-md w-full mx-4"> 
-                <button
-                    onClick={onClose}
-                    className="absolute top-0 right-0 mt-2 mr-2 text-gray-700 hover:text-gray-900"
-                >
-                    &#x2715; {/* Cross symbol */}
+            {/* Adjusted width to be 80% of the viewport width and height to be 80% of the viewport height for larger display */}
+            <div className="bg-white p-4 rounded-lg shadow-lg relative mx-4" style={{ maxWidth: '80vw', width: '80%', maxHeight: '80vh', overflowY: 'auto' }}> 
+                        <button
+            onClick={onClose}
+            className="absolute top-0 right-0 mt-2 mr-2 text-gray-700 hover:text-gray-900"
+        >
+                &#x2715; {/* Cross symbol */}
                 </button>
                 <h2 className="text-lg font-bold mb-2">About</h2>
+                <div className='space-y-4'>
                 <p className="text-justify">
                 Our word search app represents the culmination of our enthusiasm and efforts in exploring game development for web applications. A word search game emerged as the ideal candidate for this exploration due to its simplicity and wide appeal.
                 </p>
@@ -29,6 +31,8 @@ const AboutBox = ({ onClose }) => {
                 <p className="text-justify">
                 Throughout the development process, we made several decisions that shaped the direction and outcome of our project. Each decision, from the choice of technologies to the design considerations, was made with the objective of creating a fun, engaging, and accessible word search game. Our journey from conception to completion was a testament to our dedication and passion for game development, and we are proud to present our word search app as the fruit of our labor.
                 </p>
+
+                </div>
             </div>
         </div>
     );
