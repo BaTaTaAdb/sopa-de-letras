@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/sopa-de-letras/static/css/main.dad4617b.css",
-    "main.js": "/sopa-de-letras/static/js/main.2bc63482.js",
+    "main.js": "/sopa-de-letras/static/js/main.b5d4239d.js",
     "static/js/845.b4885689.chunk.js": "/sopa-de-letras/static/js/845.b4885689.chunk.js",
     "static/media/right.mp3": "/sopa-de-letras/static/media/right.a811e2247b69ac61d4df.mp3",
-    "static/media/wrong.mp3": "/sopa-de-letras/static/media/wrong.cdd5ef4f09c002158cc1.mp3",
+    "static/media/wrong.mp3": "/sopa-de-letras/static/media/wrong.aed02e6522662213469b.mp3",
     "index.html": "/sopa-de-letras/index.html",
     "main.dad4617b.css.map": "/sopa-de-letras/static/css/main.dad4617b.css.map",
-    "main.2bc63482.js.map": "/sopa-de-letras/static/js/main.2bc63482.js.map",
+    "main.b5d4239d.js.map": "/sopa-de-letras/static/js/main.b5d4239d.js.map",
     "845.b4885689.chunk.js.map": "/sopa-de-letras/static/js/845.b4885689.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dad4617b.css",
-    "static/js/main.2bc63482.js"
+    "static/js/main.b5d4239d.js"
   ]
 }
