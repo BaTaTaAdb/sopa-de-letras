@@ -1,36 +1,36 @@
-# Sopa de Letras
-Desenvolvido por **João Nuno** e **Pedro Elias**.
-Para aceder à nossa sopa de letras facilmente, jogue no website [https://batataadb.github.io/sopa-de-letras/](https://batataadb.github.io/sopa-de-letras/)
-Se quiser correr o jogo localmente, siga as instruções aqui apresentadas. 
+# Word Search
+Developed by **João Nuno** and **Pedro Elias**.
+To easily access our word search, play on the website [https://batataadb.github.io/sopa-de-letras/](https://batataadb.github.io/sopa-de-letras/). 
+If you want to run the game locally, follow the instructions presented here.
 
 
-## Instruções para Instalação
+## Installation Instructions
 
 
-### Pré-requisitos
+### Prerequisites
 
-Certifique-se de ter o [Node.js](https://nodejs.org/), o [npm](https://www.npmjs.com/) e [python](https://www.python.org/downloads/) instalados na sua máquina.
+Make sure you have [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [python](https://www.python.org/downloads/) installed on your machine.
 
-1. **Clone o Repositório:**
+1. **Clone the Repository:**
 
 ```bash
 git clone https://github.com/BaTaTaAdb/sopa-de-letras.git
 cd sopa-de-letras
 ```
 
-2. **Instalação das Dependências:**
-   Vá para o directorio do frontend e execute o seguinte comando para instalar as dependências presentes no `package.json`:
+2. **Dependency Installation:**
+   Go to the frontend directory and execute the following command to install the dependencies present in `package.json`:
 
 ```bash
 cd frontend
 npm install
 ```
 
-3. **Configuração do Backend:**
-   (Certifique-se que possui todos os pacotes necessários para correr o Flask)
+3. **Backend Configuration:**
+   (Make sure you have all the necessary packages to run Flask)
 
 ```bash
-# Aceda à directoria do backend e execute (instruções para Linux)
+# Access the backend directory and execute (instructions for Linux)
 cd backend
 python -m venv venv
 
@@ -38,45 +38,45 @@ python -m venv venv
 python -m pip install -r requirements.txt
 
 
-4. **Execução da Aplicação:**
+4. **Application Execution:**
 
-- Inicie o backend ([Flask](https://flask.palletsprojects.com/en/2.3.x/)):
+- Start the backend ([Flask](https://flask.palletsprojects.com/en/2.3.x/)):
 
 ```bash
 cd backend
-python app.py (iniciar o Flask) # Inicia o servidor na versão de desenvolvimento
+python app.py (start Flask) # Starts the server in development version
 ```
 
-- De seguida, inicie o frontend (React):
+- Then, start the frontend (React):
 
 ```bash
 cd frontend
 npm install
-npm start # Inicia o servidor na versão de desenvolvimento
+npm start # Starts the server in development version
 ```
 
-- **OU** Construa o frontend (React):
+- **OR** Build the frontend (React):
 
 ```bash
 npm run build
 npm install -g serve
-serve -s build # Serve o servidor já na sua versão de produção
+serve -s build # Serves the server already in its production version
 ```
 
-- Use um servidor de WSGI para o backend (Unicorn):
+- Use a WSGI server for the backend (Unicorn):
 
 ```bash
 gunicorn -w 4 -b 0.0.0.0:25590 app:app
 ```
 
-Após completar estes passos, a aplicação deverá estar a correr no seu ambiente local!
+After completing these steps, the application should be running in your local environment!
 
-## Licença
+## License
 
-Este projecto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT license - see the [LICENSE](LICENSE) file for more details.
 
 ---
-## Tecnologias Utilizadas
+## Technologies Used
 
 **Frontend:**
 
@@ -86,4 +86,3 @@ Este projecto está licenciado sob a licença MIT - consulte o arquivo [LICENSE]
 **Backend:**
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/)
-
