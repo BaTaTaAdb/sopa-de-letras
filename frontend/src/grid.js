@@ -15,10 +15,9 @@ function Grid({ letters, words }) {
   const audioRef = useRef(null);
   // Ref to track if the mouse button is pressed down
   const isMouseDown = useRef(false);
-  // State to track right grids
-  const [rightGrids, setRightGrids] = useState([]);
+
   // Get context of striked words
-  const { strikeWord, strickenWords, endGame, gameEnded } = useContext(WordContext);
+  const { strikeWord, strickenWords, endGame, gameEnded, rightGrids, setRightGrids } = useContext(WordContext);
   const [playRightSound] = useSound(rightSfx, { volume: 0.5 });
   const [playWrongSound] = useSound(wrongSfx, { volume: 0.15 });
 

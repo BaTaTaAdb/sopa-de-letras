@@ -51,7 +51,7 @@ def get_board_and_words():
         "é": "e", "ê": "e"
     }
 
-    with open("words.txt", "r") as f:
+    with open("corrected_words.txt", "r") as f:
         list_of_possible_words = f.readlines()
         board_words = []
         while len(board_words) < 10:
@@ -66,7 +66,8 @@ def get_board_and_words():
             if not word_set.issubset(valid_letters):
                 continue
 
-            actual_word = "".join(special_to_normal.get(letter.lower(), letter.lower()) for letter in random_possible_word.letters)
+            actual_word = "".join(special_to_normal.get(
+                letter.lower(), letter.lower()) for letter in random_possible_word.letters)
             random_possible_word.letters = actual_word
             board_words.append(random_possible_word)
 
@@ -101,8 +102,10 @@ def get_board_and_words():
         time += 1
         answers.append({f"{word.letters}": {"coords": word.coords}})
 
-    fill_choices = list("abcdefghijklmnopqrstuvwxyzç".upper())
+    fill_choices = list("abcdefghijklmnopqrstuvwxyz".upper())
     empty_positions = np.where(board == "")
-    board[empty_positions] = np.random.choice(fill_choices, len(empty_positions[0]))
+    board[empty_positions] = np.random.choice(
+        fill_choices, len(empty_positions[0]))
+
 
     return (board, answers)
