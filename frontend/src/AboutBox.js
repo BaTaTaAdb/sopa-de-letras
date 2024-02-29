@@ -31,6 +31,15 @@ const AboutBox = ({ onClose }) => {
                 <p className="text-justify">
                 Throughout the development process, we made several decisions that shaped the direction and outcome of our project. Each decision, from the choice of technologies to the design considerations, was made with the objective of creating a fun, engaging, and accessible word search game. Our journey from conception to completion was a testament to our dedication and passion for game development, and we are proud to present our word search app as the fruit of our labor.
                 </p>
+                <p className="text-justify">
+                    Credits:
+                </p>
+                <p className="text-justify">
+                    Frontend made by João Nuno and Backend made by Pedro Elias.
+                </p>
+                <p className="text-justify">
+                    Hosted by Github.
+                </p>
 
                 </div>
             </div>
