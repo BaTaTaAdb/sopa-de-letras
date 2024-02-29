@@ -1,19 +1,9 @@
-# Sopa de Letras - Projecto Fullstack
+# Sopa de Letras
+Desenvolvido por **João Nuno** e **Pedro Elias**.
+Para aceder à nossa sopa de letras facilmente, jogue no website [https://batataadb.github.io/sopa-de-letras/](https://batataadb.github.io/sopa-de-letras/)
+Se quiser correr o jogo localmente, siga as instruções aqui apresentadas. 
 
-Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências em desenvolvimento fullstack, utilizando tecnologias actuais como React e TailwindCSS no frontend, e Flask no backend.
-
-## 🛠️ Tecnologias Utilizadas
-
-**Frontend:**
-
-- [React](https://pt-br.react.dev)
-- [TailwindCSS](https://tailwindcss.com/)
-
-**Backend:**
-
-- [Flask](https://flask.palletsprojects.com/en/2.3.x/)
-
-## 🚀 Instruções para Instalação
+## Instruções para Instalação
 
 ### Pré-requisitos
 
@@ -41,7 +31,7 @@ npm install
 # Aceda à directoria do backend e execute
 cd backend
 python -m venv venv
-source "./venv/Scripts/activate"
+.\venv\Scripts\activate.bat
 python -m pip install -r requirements.txt
 ```
 
@@ -71,14 +61,19 @@ serve -s build # Serve o servidor já na sua versão de produção
 
 Após completar estes passos, a aplicação deverá estar a correr no seu ambiente local!
 
-## 📝 Contribuição
-
-Feedbacks, questões e pull requests são sempre bem-vindos.
-
-## 📜 Licença
+## Licença
 
 Este projecto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
+## Tecnologias Utilizadas
 
-Desenvolvido com ❤️ por **João Nuno** e **Pedro Elias**.
+**Frontend:**
+
+- [React](https://pt-br.react.dev)
+- [TailwindCSS](https://tailwindcss.com/)
+
+**Backend:**
+
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/)
+
