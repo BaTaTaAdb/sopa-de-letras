@@ -18,7 +18,7 @@ Bem-vindo ao projecto Sopa de Letras! Esta aplicação demonstra competências e
 
 ### Pré-requisitos
 
-Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmjs.com/) instalados na sua máquina.
+Certifique-se de ter o [Node.js](https://nodejs.org/), o [npm](https://www.npmjs.com/) e [python](https://www.python.org/downloads/) instalados na sua máquina.
 
 1. **Clone o Repositório:**
 
