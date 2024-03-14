@@ -24,7 +24,7 @@ const MenuOverlay = () => {
         loadNewBoard();
     }
 
-   
+
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -88,7 +88,7 @@ const MenuOverlay = () => {
                                             >
                                                 Start
                                             </button>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
